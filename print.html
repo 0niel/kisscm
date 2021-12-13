@@ -1,0 +1,2657 @@
+<!DOCTYPE HTML>
+<html lang="ru_RU" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>КОНФИГУРАЦИОННОЕ УПРАВЛЕНИЕ</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Введение</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="Chto-takoe-konfiguratcionnoe-upravlenie.html"><strong aria-hidden="true">1.1.</strong> Что такое конфигурационное управление</a></li><li class="chapter-item expanded "><a href="Formalnye-opredeleniia.html"><strong aria-hidden="true">1.2.</strong> Формальные определения</a></li><li class="chapter-item expanded "><a href="Tematika-knigi.html"><strong aria-hidden="true">1.3.</strong> Тематика книги</a></li></ol></li><li class="chapter-item expanded "><a href="1_-Rabota-v-komandnoi-stroke.html"><strong aria-hidden="true">2.</strong> Работа в командной строке</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1_1_-Komandnyi-interpretator.html"><strong aria-hidden="true">2.1.</strong> Командный интерпретатор</a></li><li class="chapter-item expanded "><a href="1_2_-Instrumenty-komandnoi-stroki.html"><strong aria-hidden="true">2.2.</strong> Инструменты командной строки</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Менеджеры пакетов</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="2_1_-Numeratciia-versii-PO.html"><strong aria-hidden="true">3.1.</strong> Нумерация версий ПО</a></li><li class="chapter-item expanded "><a href="2_2_-Semanticheskaia-numeratciia-versii.html"><strong aria-hidden="true">3.2.</strong> Семантическая нумерация версий</a></li><li class="chapter-item expanded "><a href="2_3_-Upravlenie-paketami.html"><strong aria-hidden="true">3.3.</strong> Управление пакетами</a></li><li class="chapter-item expanded "><a href="2_4_-Menedzher-paketov-apk.html"><strong aria-hidden="true">3.4.</strong> Менеджер пакетов apk</a></li><li class="chapter-item expanded "><a href="2_5_-Menedzher-paketov-apt.html"><strong aria-hidden="true">3.5.</strong> Менеджер пакетов apt</a></li><li class="chapter-item expanded "><a href="2_6_-Zadacha-razresheniia-zavisimostei-paketov.html"><strong aria-hidden="true">3.6.</strong> Задача разрешения зависимостей пакетов</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Конфигурационные языки</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="3_1_-Infrastruktura-kak-kod.html"><strong aria-hidden="true">4.1.</strong> Инфраструктура как код</a></li><li class="chapter-item expanded "><a href="3_2_-Formalnye-iazyki-i-grammatiki.html"><strong aria-hidden="true">4.2.</strong> Формальные языки и грамматики</a></li><li class="chapter-item expanded "><a href="3_3_-Kompiuternye-iazyki.html"><strong aria-hidden="true">4.3.</strong> Компьютерные языки</a></li><li class="chapter-item expanded "><a href="3_4_-Prostye-formaty-opisaniia-konfiguratcii.html"><strong aria-hidden="true">4.4.</strong> Простые форматы описания конфигурации</a></li><li class="chapter-item expanded "><a href="3_5_-Iazyki-obshchego-naznacheniia-kak-konfiguratcionnye.html"><strong aria-hidden="true">4.5.</strong> Языки общего назначения как конфигурационные</a></li><li class="chapter-item expanded "><a href="3_6_-Programmiruemye-konfiguratcionnye-iazyki.html"><strong aria-hidden="true">4.6.</strong> Программируемые конфигурационные языки</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Системы автоматизации сборки</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="4_1_-Vidy-sistem-sborki.html"><strong aria-hidden="true">5.1.</strong> Виды систем сборки</a></li><li class="chapter-item expanded "><a href="4_2_-Topologicheskaia-sortirovka.html"><strong aria-hidden="true">5.2.</strong> Топологическая сортировка</a></li><li class="chapter-item expanded "><a href="4_3_-Sistema-sborki-Make.html"><strong aria-hidden="true">5.3.</strong> Система сборки Make</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Системы контроля версий</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="5_1_-O-sistemakh-kontrolia-versii.html"><strong aria-hidden="true">6.1.</strong> О системах контроля версий</a></li><li class="chapter-item expanded "><a href="5_2_-Sistema-kontrolia-versii-Git.html"><strong aria-hidden="true">6.2.</strong> Система контроля версий Git</a></li><li class="chapter-item expanded "><a href="5_3_-Git-iznutri.html"><strong aria-hidden="true">6.3.</strong> Git изнутри</a></li></ol></li><li class="chapter-item expanded "><a href="6_-Dokumentatciia-kak-kod.html"><strong aria-hidden="true">7.</strong> Документация как код</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="6_1_-Iazyki-razmetki.html"><strong aria-hidden="true">7.1.</strong> Языки разметки</a></li><li class="chapter-item expanded "><a href="6_2_-Gramotnoe-programmirovanie.html"><strong aria-hidden="true">7.2.</strong> Грамотное программирование</a></li><li class="chapter-item expanded "><a href="6_3_-Markdown-i-Pandoc.html"><strong aria-hidden="true">7.3.</strong> Markdown и Pandoc</a></li><li class="chapter-item expanded "><a href="6_4_-Iazyki-opisaniia-diagramm.html"><strong aria-hidden="true">7.4.</strong> Языки описания диаграмм</a></li><li class="chapter-item expanded "><a href="6_5_-Generatory-dokumentatcii-na-osnove-iskhodnykh-tekstov.html"><strong aria-hidden="true">7.5.</strong> Генераторы документации на основе исходных текстов</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Вопросы виртуализации</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="7_1_-Chto-takoe-virtualizatciia.html"><strong aria-hidden="true">8.1.</strong> Что такое виртуализация</a></li><li class="chapter-item expanded "><a href="7_2_-Iazykovye-virtualnye-mashiny.html"><strong aria-hidden="true">8.2.</strong> Языковые виртуальные машины</a></li><li class="chapter-item expanded "><a href="7_3_-Virtualizatciia-vychislitelnoi-sistemy.html"><strong aria-hidden="true">8.3.</strong> Виртуализация вычислительной системы</a></li><li class="chapter-item expanded "><a href="7_4_-Virtualizatciia-prilozheniia.html"><strong aria-hidden="true">8.4.</strong> Виртуализация приложения</a></li><li class="chapter-item expanded "><a href="7_5_-Virtualizatciia-urovnia-OS.html"><strong aria-hidden="true">8.5.</strong> Виртуализация уровня ОС</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">КОНФИГУРАЦИОННОЕ УПРАВЛЕНИЕ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <div style="break-before: page; page-break-before: always;"></div><h2 id="Что-такое-конфигурационное-управление"><a class="header" href="#Что-такое-конфигурационное-управление">Что такое конфигурационное управление</a></h2>
+<p>Задача управления конфигурацией (configuration management) некоторой
+системы является типичной для инженерной деятельности. Под конфигурацией
+понимается состав элементов системы и взаимное их расположение.
+Конфигурацией можно управлять, отслеживая ее состояние и контролируя
+целостность изменений конфигурации, а также фиксируя эти изменения в
+документации.</p>
+<p>Можно заметить, что конфигурационное управление в описанном виде
+представляется достаточно рутинной работой. К счастью, инструменты и
+подходы, разработанные для конфигурационного управления ПО (software
+configuration management), позволили автоматизировать многие задачи.
+Это, в частности, касается популярного инструмента git, который сегодня
+используется не только программистами, но даже некоторыми художниками и
+писателями для управления конфигурацией своих творений. Далее под
+конфигурационным управлением будет пониматься именно конфигурационное
+управление ПО.</p>
+<p>Конфигурационное управление является частью программной инженерии,
+поэтому к нему применима следующая цитата:</p>
+<blockquote>
+<p>«Программная инженерия – это то, что происходит с программированием
+при добавлении времени и других программистов»</p>
+<p>(Russ Cox).</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="Формальные-определения"><a class="header" href="#Формальные-определения">Формальные определения</a></h2>
+<p>Рассмотрим теперь несколько формальных определений конфигурационного
+управления.</p>
+<p>В ГОСТ Р ИСО/МЭК 12207-2010 определены следующие термины:</p>
+<p><strong>Базовая линия</strong> (baseline) – спецификация или продукт, которые были
+официально рассмотрены и согласованы с тем, чтобы впоследствии служить
+основой для дальнейшего развития, и которые могут быть изменены только
+посредством официальных и контролируемых процедур изменения</p>
+<p><strong>Составная часть конфигурации</strong> (configuration item) – объект в
+пределах конфигурации, который удовлетворяет некоторой функции целевого
+применения и может быть однозначно идентифицирован в данный момент</p>
+<p>С использованием этих терминов определена цель конфигурационного
+управления (менеджмента конфигурации):</p>
+<p>Цель процесса менеджмента конфигурации состоит в установлении и
+поддержании целостности всех идентифицированных выходных результатов
+проекта или процесса обеспечения доступа к ним любой заинтересованной
+стороны.</p>
+<p>В результате успешного осуществления процесса менеджмента конфигурации:</p>
+<ol>
+<li>определяется стратегия менеджмента конфигурации;</li>
+<li>определяются составные части, нуждающиеся в менеджменте
+конфигурации;</li>
+<li>устанавливается базовая линия конфигурации;</li>
+<li>осуществляется управление изменениями в составных частях,
+находящихся под менеджментом конфигурации;</li>
+<li>осуществляется управление конфигурацией составных частей, входящих в
+выпуск;</li>
+<li>статус составных частей, на которые распространяется менеджмент
+конфигурации, становится доступным на протяжении всего жизненного
+цикла.</li>
+</ol>
+<p>Во введении к стандарту IEEE 828-2012 конфигурационное управление в
+системной и программной инженерии определено, как специальная дисциплина
+в рамках более крупной дисциплины конфигурационного управления. Целями
+конфигурационного управления является:</p>
+<ol>
+<li>идентифицировать и задокументировать функциональные и физические
+характеристики любого продукта, компонента, результата или услуги;</li>
+<li>управлять любыми изменениями этих характеристик;</li>
+<li>вести записи и сообщать о каждом изменении и статусе его реализации;</li>
+<li>поддерживать аудит продуктов, результатов, услуг или компонентов для
+проверки соответствия требованиям.</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="Тематика-книги"><a class="header" href="#Тематика-книги">Тематика книги</a></h2>
+<p>В этой книге конфигурационное управление трактуется более широко, чем в
+приведенных выше формальных определениях. Тематика книги в некоторой
+степени пересекаются с заслуживающими внимания материалами из
+[<a href="Tematika-knigi.html#ref-missing">1</a>] и [<a href="Tematika-knigi.html#ref-irving2021research">2</a>].</p>
+<p>Рассматриваемые далее темы:</p>
+<ol>
+<li>командная строка;</li>
+<li>менеджеры пакетов;</li>
+<li>конфигурационные языки;</li>
+<li>системы автоматизации сборки;</li>
+<li>системы контроля версий;</li>
+<li>документация как код;</li>
+<li>вопросы виртуализации.</li>
+</ol>
+<p>Часто можно наблюдать этаких «сапожников без сапог» – программистов,
+которые решают задачи конечных пользователей, но не занимаются
+автоматизацией собственных рутинных задач. Поэтому выбор тем книги
+обусловлен общей целью – стремлением к автоматизации процессов,
+связанных с разработкой ПО.</p>
+<p>Акцент на сиюминутных технологиях и инструментах может привести к
+чрезвычайно быстрому устареванию материала. По этой причине основное
+внимание в книге уделено общим подходам, алгоритмам и использованию
+проверенных временем инструментов с открытым кодом.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1-Работа-в-командной-строке"><a class="header" href="#1-Работа-в-командной-строке">1. Работа в командной строке</a></h1>
+<p>Командная строка на экране монитора – имитация работы с телетайпом.
+Телетайп, в свою очередь, является электромеханической печатной машиной,
+которую можно подключить к компьютеру. Пользователь набирает текст,
+который печатается на рулоне бумаги. Компьютер печатает пользователю
+свои ответы.</p>
+<p>Удивительно, но такой, казалось бы, устаревший способ общения с
+компьютером все еще активно используется, пусть и с более современными
+средствами ввода-вывода. Более того, многие задачи очень трудно решить
+без командной строки! Это касается, в частности, работы с системой
+контроля версий Git, с системой автоматизации сборки Make, с системой
+контейнеризации Docker и многими другими популярными сегодня
+программами. Командная строка в духе UNIX имеется в MacOS, Linux и
+Windows (WSL, Powershell). Стоит вспомнить и многочисленные фильмы о
+«хакерах» – если герой фильма решает за компьютером какие-то
+нетривиальные задачи, то, обычно, зрителю демонстрируется именно
+командная строка.</p>
+<p>Командная строка, как ни странно, хорошо знакома и любителям старых
+текстовых игр. В этих играх для совершения какого-либо действия
+необходимо набрать с клавиатуры соответствующую команду в духе
+<code>go north</code>, <code>read book</code> или <code>take apple</code>.</p>
+<p>Вот как выглядит пример диалога с пользователем в игре Zork (1979 г.):</p>
+<pre><code>West of House                                       Score: 0     Moves: 4      
+ZORK
+
+Welcome to ZORK.
+Release 13 / Serial number 040826 / Inform v6.14 Library 6/7
+West of House
+This is an open field west of a white house, with a boarded front door.
+There is a small mailbox here.
+A rubber mat saying 'Welcome to Zork!' lies by the door.
+
+&gt;open mailbox
+You open the mailbox, revealing a small leaflet.
+
+&gt;take leaflet
+Taken.
+</code></pre>
+<p>Операционная система UNIX [<a href="1_-Rabota-v-komandnoi-stroke.html#ref-unix">3</a>] была разработана в далеком
+1969 году. UNIX изначально являлась операционной системой в первую
+очередь для разработчиков, которым удобнее всего автоматизировать свои
+действия с помощью командной строки. Сама по себе командная строка еще
+древнее UNIX.</p>
+<p>Основная суть решений, принятых при использовании командной строки,
+сводится к положениям «философии UNIX» (Дуг Макилрой), которые можно
+выразить следующими пунктами:</p>
+<ul>
+<li>Пусть каждая программа решает одну задачу и решает ее хорошо. Для
+новых задач создавайте новые программы, а не усложняйте старые
+новыми «возможностями».</li>
+<li>Предполагайте, что вывод каждой программы может стать входом другой,
+еще неизвестной программы. Не загромождайте вывод посторонней
+информацией. Избегайте строго выравненных столбчатых и двоичных
+входных форматов. Не настаивайте на интерактивном вводе.</li>
+<li>Проектируйте и разрабатывайте ПО, даже операционные системы, таким
+образом, чтобы его можно было опробовать уже на ранних этапах, в
+идеале в течение недель. Не бойтесь выбрасывать неудачно
+реализованные части и пересоздавать их.</li>
+<li>Вместо ручного труда используйте инструменты для облегчения задач
+разработки, даже если придется отвлечься на создание этих
+инструментов, а сами инструменты могут впоследствии больше не
+понадобиться.</li>
+</ul>
+<p>Далее будет рассматриваться современный вариант UNIX, популярная ОС
+Linux, разработанная в 1991 году Линусом Торвальдсом (в то время –
+студентом финского университета).</p>
+<p>При работе с командной строкой необходимо учитывать структуру файловой
+системы. В Linux она имеет следующий вид:</p>
+<pre><code>localhost:~# tree -d -L 1 /
+/
+├── bin
+├── dev
+├── etc
+├── home
+├── lib
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+</code></pre>
+<p>Имя <code>/</code> является корнем (root) файловой системы. Внутри корня
+расположены следующие, наиболее значимые каталоги:</p>
+<ul>
+<li>bin. Исполняемые файлы системных утилит.</li>
+<li>dev. Устройства, к которым в Linux возможен доступ, как к файлам.</li>
+<li>etc. Системные конфигурационные файлы.</li>
+<li>home. Домашние каталоги пользователей.</li>
+<li>lib. Системные библиотеки.</li>
+<li>media. Подключаемые съемные диски: USB, CD-ROM и так далее.</li>
+<li>mnt. Подключаемые разделы.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="11-Командный-интерпретатор"><a class="header" href="#11-Командный-интерпретатор">1.1. Командный интерпретатор</a></h2>
+<p>За поддержку работы в командной строке отвечает специальная программа –
+интерпретатор оболочки ОС (shell). В случае Linux таким интерпретатором
+обычно является Bash, архитектура которого приведена на рис. 1. Под Bash
+далее будем понимать целое семейство работающих схожим образом
+интерпретаторов. Интерпретатор выполняет следующие основные действия
+[<a href="1_1_-Komandnyi-interpretator.html#ref-ramey2011bourne">4</a>]:</p>
+<ol>
+<li>Принимает строку от пользователя.</li>
+<li>Разбирает эту строку и переводит во внутренний формат.</li>
+<li>Осуществляет подстановку для различных специальных символов и имен.</li>
+<li>Выполняет команду пользователя.</li>
+<li>Выдает код выполнения.</li>
+</ol>
+<figure>
+<img src="cli1.svg" id="fig:cli1" alt="Рис. 1. Архитектура интерпретатора Bash" /><figcaption aria-hidden="true">Рис. 1. Архитектура интерпретатора Bash</figcaption>
+</figure>
+<p>Ниже показан пример сеанса работы в Bash:</p>
+<pre><code>localhost:~# pwd
+/root
+localhost:~# ls -l
+total 16
+-rw-r--r--    1 root     root           114 Jul  5  2020 bench.py
+-rw-r--r--    1 root     root            76 Jul  3  2020 hello.c
+-rw-r--r--    1 root     root            22 Jun 26  2020 hello.js
+-rw-r--r--    1 root     root           151 Jul  5  2020 readme.txt
+localhost:~# echo 'new file' &gt; new_file.txt
+localhost:~# cat new_file.txt
+new file
+localhost:~# mkdir new_dir
+localhost:~# cp new_file.txt new_dir/
+localhost:~# rm new_file.txt
+localhost:~# ls -l
+total 20
+-rw-r--r--    1 root     root           114 Jul  5  2020 bench.py
+-rw-r--r--    1 root     root            76 Jul  3  2020 hello.c
+-rw-r--r--    1 root     root            22 Jun 26  2020 hello.js
+drwxr-xr-x    2 root     root            66 Nov  4 17:16 new_dir
+-rw-r--r--    1 root     root           151 Jul  5  2020 readme.txt
+localhost:~# ls -l new_dir/
+total 4
+-rw-r--r--    1 root     root             9 Nov  4 17:16 new_file.txt
+</code></pre>
+<p>Обратите внимание на использование в приведенном сеансе команд,
+упрощенное описание которых дано ниже:</p>
+<ul>
+<li><code>pwd</code> (print working directory). Вывести имя текущего каталога.</li>
+<li><code>ls</code> (list). Вывести содержимое каталога.</li>
+<li><code>echo</code>. Вывести свой аргумент.</li>
+<li><code>cat</code> (concatenate). Вывести содержимое файла.</li>
+<li><code>mkdir</code> (make directory). Создать каталог.</li>
+<li><code>cp</code> (copy). Скопировать файл.</li>
+<li><code>rm</code> (remove). Удалить файл.</li>
+</ul>
+<p>Многие команды имеют ряд аргументов, это, в частности, касается <code>ls</code>,
+которая выше была вызвана с аргументом <code>-l</code>. Аргументы разделяются
+пробелами и имеют префикс <code>-</code>.</p>
+<p>Узнать об аргументах, которые принимает команда, можно с помощью
+аргумента <code>--help</code>:</p>
+<pre><code>localhost:~# ls --help
+BusyBox v1.31.1 () multi-call binary.
+ 
+Usage: ls [-1AaCxdLHRFplinshrSXvctu] [-w WIDTH] [FILE]...
+ 
+List directory contents
+ 
+        -1      One column output
+        -a      Include entries which start with .
+        -A      Like -a, but exclude . and ..
+        -x      List by lines
+        -d      List directory entries instead of contents
+        -L      Follow symlinks
+        -H      Follow symlinks on command line
+        -R      Recurse
+        -p      Append / to dir entries
+        -F      Append indicator (one of */=@|) to entries
+        -l      Long listing format
+        -i      List inode numbers
+        -n      List numeric UIDs and GIDs instead of names
+        -s      List allocated blocks
+        -lc     List ctime
+        -lu     List atime
+        --full-time     List full date and time
+        -h      Human readable sizes (1K 243M 2G)
+        --group-directories-first
+        -S      Sort by size
+        -X      Sort by extension
+        -v      Sort by version
+        -t      Sort by mtime
+        -tc     Sort by ctime
+        -tu     Sort by atime
+        -r      Reverse sort order
+        -w N    Format N columns wide
+        --color[={always,never,auto}]   Control coloring
+</code></pre>
+<p>Еще одним способом получить подробные сведения о конкретной команде
+является вызов вида <code>man &lt;команда&gt;</code>.</p>
+<p>Без объяснений осталась строка <code>echo 'new file' &gt; new_file.txt</code> в
+примере сеанса работы в командной строке выше. Здесь используется
+механизм перенаправления данных с помощью символов <code>&lt;</code> (перенаправление
+ввода) и <code>&gt;</code> (перенаправление вывода). В Linux имеется источник
+стандартного ввода stdin (код 0), а также два приемника стандартного
+вывода: stdout (код 1) и stderr (код 2, для ошибок). Организация
+ввода/вывода показана на рис. 2.</p>
+<figure>
+<img src="cli2.svg" id="fig:cli2" alt="Рис. 2. Организация ввода/вывода" /><figcaption aria-hidden="true">Рис. 2. Организация ввода/вывода</figcaption>
+</figure>
+<p>В примере ниже используется stdout и stderr:</p>
+<pre><code>localhost:~# pwd
+/root
+localhost:~# pwd &gt; pwd.txt
+localhost:~# pwd --foo
+sh: pwd: illegal option --
+localhost:~# pwd --foo 2&gt; err.txt
+localhost:~# cat err.txt
+sh: pwd: illegal option --
+</code></pre>
+<p>Обратите внимание на явное указание кода 2 при сохранении сообщения об
+ошибке в файл.</p>
+<p>Перенаправление ввода/вывода превращается в очень мощную конструкцию при
+использовании такой организации команд, при которой вывод одной команды
+попадает на вход другой команды. Эта конструкция представляет собой
+конвейер и реализуется с помощью символа <code>|</code>, как показано в примере
+далее:</p>
+<pre><code>localhost:~# pwd &gt; pwd.txt
+localhost:~# rev --help
+Usage: rev [options] [file ...]
+ 
+Reverse lines characterwise.
+ 
+Options:
+ -h, --help     display this help
+ -V, --version  display version
+ 
+For more details see rev(1).
+localhost:~# rev pwd.txt
+toor/
+localhost:~# pwd | rev
+toor/
+</code></pre>
+<p>В Bash имеется удобный синтаксис для развертывания файловых путей
+(globbing). С помощью символов <code>*</code> (произвольная последовательность) и
+<code>?</code> (произвольный символ) реализуется подстановка имен файлов в духе
+регулярных выражений, как в примере ниже:</p>
+<pre><code>localhost:~# echo *
+bench.py err.txt hello.c hello.js new_dir pwd.txt readme.txt rev
+localhost:~# echo *.c
+hello.c
+localhost:~# echo p*
+pwd.txt
+localhost:~# echo *.??
+bench.py hello.js
+</code></pre>
+<p>В Bash есть возможность задать переменные и, кроме того, имеется ряд уже
+определенных переменных. Обратите внимание на особенности создания
+переменных:</p>
+<pre><code>localhost:~# A = 42
+sh: A: not found
+localhost:~# A=42
+localhost:~# A
+sh: A: not found
+localhost:~# echo $A
+42
+</code></pre>
+<p>С помощью команды <code>set</code> можно, помимо прочего, узнать, какие переменные
+сейчас заданы для текущего пользователя:</p>
+<pre><code>localhost:~# set
+A='42'
+HISTFILE='/root/.ash_history'
+HOME='/root'
+HOSTNAME='localhost'
+IFS='
+'
+LINENO=''
+OLDPWD='/'
+OPTIND='1'
+PAGER='less'
+PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+PPID='1'
+PS1='\h:\w\$ '
+PS2='&gt; '
+PS4='+ '
+PWD='/root'
+SHLVL='3'
+TERM='linux'
+TZ='UTC-03:00'
+_='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+script='/etc/profile.d/*.sh'
+</code></pre>
+<p>Особенно важна здесь переменная PATH, которая определяет те пути
+(разделенные с помощью <code>:</code>), где будет осуществляться поиск команд
+интерпретатором.</p>
+<p>Linux является многопользовательской ОС и информация о
+зарегистрированных пользователях находится в конфигурационном файле
+<code>/etc/passwd</code>:</p>
+<pre><code>localhost:~# whoami
+root
+localhost:~# cat /etc/passwd
+root:x:0:0:root:/root:/bin/ash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/mail:/sbin/nologin
+news:x:9:13:news:/usr/lib/news:/sbin/nologin
+uucp:x:10:14:uucp:/var/spool/uucppublic:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+man:x:13:15:man:/usr/man:/sbin/nologin
+postmaster:x:14:12:postmaster:/var/mail:/sbin/nologin
+cron:x:16:16:cron:/var/spool/cron:/sbin/nologin
+ftp:x:21:21::/var/lib/ftp:/sbin/nologin
+sshd:x:22:22:sshd:/dev/null:/sbin/nologin
+at:x:25:25:at:/var/spool/cron/atjobs:/sbin/nologin
+squid:x:31:31:Squid:/var/cache/squid:/sbin/nologin
+xfs:x:33:33:X Font Server:/etc/X11/fs:/sbin/nologin
+games:x:35:35:games:/usr/games:/sbin/nologin
+cyrus:x:85:12::/usr/cyrus:/sbin/nologin
+vpopmail:x:89:89::/var/vpopmail:/sbin/nologin
+ntp:x:123:123:NTP:/var/empty:/sbin/nologin
+smmsp:x:209:209:smmsp:/var/spool/mqueue:/sbin/nologin
+guest:x:405:100:guest:/dev/null:/sbin/nologin
+nobody:x:65534:65534:nobody:/:/sbin/nologin
+dhcp:x:100:101:dhcp:/var/lib/dhcp:/sbin/nologin
+svn:x:101:102:svn:/var/svn:/sbin/nologin
+</code></pre>
+<p>Информация о каждом из пользователей занимает отдельную строку. Строка
+разделяется символом <code>:</code> на поля. Первое поле означает имя пользователя.
+В нашем случае это root. Последнее поле указывает путь к интерпретатору
+оболочки ОС. В нашем случае это компактный Bash-подобный интерпретатор
+ash.</p>
+<p>Вспомним, как выглядит вывод команды <code>ls</code> в long-формате:</p>
+<pre><code>localhost:~# ls -l
+total 20
+-rw-r--r--    1 root     root           114 Jul  5  2020 bench.py
+drwxr-xr-x    2 root     root            37 Nov  4 18:01 foo
+-rw-r--r--    1 root     root            76 Jul  3  2020 hello.c
+-rw-r--r--    1 root     root            22 Jun 26  2020 hello.js
+-rw-r--r--    1 root     root           151 Jul  5  2020 readme.txt
+</code></pre>
+<p>Первый столбец определяет права доступа и информацию о файле (<code>-</code>) или
+каталоге (<code>d</code>, как в случае с foo), закодированную в первом символе.
+Флаги доступа бывают следующих основных видов:</p>
+<ul>
+<li><code>-</code>. Доступ запрещен.</li>
+<li><code>r</code> (read). Имеется доступ на чтение.</li>
+<li><code>w</code> (write). Имеется доступ на запись.</li>
+<li><code>x</code> (execute). Имеется доступ на исполнение (на вход в случае
+каталога).</li>
+</ul>
+<p>Рассмотрим детали на примере с файлом bench.py, который имеет следующие
+права доступа:</p>
+<pre><code>-rw-r--r--  1 root    root             114 Jul  5  2020 bench.py
+|[-][-][-]   [----]  [----]
+| |  |  |      |       |
+| |  |  |      |       +-------------&gt; 6. Группа
+| |  |  |      +---------------------&gt; 5. Владелец
+| |  |  | 
+| |  |  +----------------------------&gt; 4. Права всех остальных
+| |  +-------------------------------&gt; 3. Права группы
+| +----------------------------------&gt; 2. Права владельца
++------------------------------------&gt; 1. Тип файла
+</code></pre>
+<p>При создании пользовательских команд необходимо указать права на
+исполнение, как показано в примере ниже:</p>
+<pre><code>localhost:~# echo &quot;ls -l&quot; &gt; lsl
+localhost:~# lsl
+sh: lsl: not found
+localhost:~# ./lsl
+sh: ./lsl: Permission denied
+localhost:~# chmod +x lsl
+localhost:~# ./lsl
+total 24
+-rw-r--r--    1 root     root           114 Jul  5  2020 bench.py
+drwxr-xr-x    2 root     root            37 Nov  4 18:01 foo
+-rw-r--r--    1 root     root            76 Jul  3  2020 hello.c
+-rw-r--r--    1 root     root            22 Jun 26  2020 hello.js
+-rwxr-xr-x    1 root     root             6 Nov  4 18:44 lsl
+-rw-r--r--    1 root     root           151 Jul  5  2020 readme.txt
+</code></pre>
+<p>В Bash существует ряд специальных переменных, в частности:</p>
+<ul>
+<li><code>$0</code>. Путь к запущенной программе.</li>
+<li><code>$1, $2, ...</code>. Аргументы программы.</li>
+<li><code>$#</code>. Количество аргументов программы.</li>
+<li><code>$@</code>. Список аргументов программы.</li>
+<li><code>$?</code>. Значение результата выполнения программы (0 означает успешное
+выполнение).</li>
+</ul>
+<p>Рассмотрим в качестве примера следующую программу tests.sh:</p>
+<pre><code>echo $0
+echo $1 $2
+echo $#
+echo $@
+</code></pre>
+<p>Результат ее выполнения показан далее:</p>
+<pre><code>localhost:~# ./test.sh 1 2 3 4 5
+./test.sh
+1 2
+5
+1 2 3 4 5
+localhost:~# echo $?
+0
+localhost:~# foo
+sh: foo: not found
+localhost:~# echo $?
+127
+</code></pre>
+<p>Рассмотрим теперь более сложный пример пользовательской команды. Далее
+приведен код на языке Bash вычисления факториала:</p>
+<pre><code>#!/bin/sh
+seq &quot;$1&quot; | xargs echo | tr &quot; &quot; &quot;*&quot; | bc
+</code></pre>
+<p>В первой строке указан интерпретатор, который будет использоваться для
+исполнения программы. По соглашению, такую строку необходимо всегда
+указывать первой в пользовательских скриптах. Далее используется ряд
+новых команд.</p>
+<p>Команда <code>seq</code> (sequence) генерирует последовательность чисел:</p>
+<pre><code>localhost:~# seq 5
+1
+2
+3
+4
+5
+</code></pre>
+<p>Команда <code>xargs</code> (extended arguments) форматирует список из стандартного
+ввода:</p>
+<pre><code>localhost:~# seq 5 | xargs
+1 2 3 4 5
+</code></pre>
+<p>Команда <code>tr</code>(translate) осуществляет замену текстовых фрагментов:</p>
+<pre><code>localhost:~# seq 5 | xargs | tr &quot; &quot; &quot;*&quot;
+1*2*3*4*5
+</code></pre>
+<p>Команда <code>bc</code> (basic calculator) представляет собой калькулятор:</p>
+<pre><code>localhost:~# echo &quot;2+2&quot; | bc
+4
+</code></pre>
+<p>Для вычислений в Bash можно также использовать скобки специального вида:</p>
+<pre><code>localhost:~# echo $((2 + 2))
+4
+</code></pre>
+<p>Для получения результата команды в виде аргумента другой команды можно
+также использовать скобки специального вида:</p>
+<pre><code>localhost:~# echo &quot;My folder is $(pwd)&quot;
+My folder is /root
+</code></pre>
+<p>В Bash имеются возможности полноценного языка программирования. Ниже
+приведен пример реализации факториала с использованием ветвлений и
+рекурсии:</p>
+<pre><code>#!/bin/sh
+if [ &quot;$1&quot; -le 1 ] ; then
+        echo 1
+        return
+fi
+echo $(( $1 * $( ./fact.sh $(( $1 - 1 )) ) ))
+</code></pre>
+<p>Реализация факториала с использованием цикла:</p>
+<pre><code>#!/bin/sh
+res=1
+for i in $(seq 1 &quot;$1&quot;); do
+        res=$((res * i))
+done
+echo $res
+</code></pre>
+<p>Существует веб-инструмент ShellCheck [<a href="1_1_-Komandnyi-interpretator.html#ref-shellcheck">5</a>], которым
+можно пользоваться для проверки корректности Bash-скриптов.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="12-Инструменты-командной-строки"><a class="header" href="#12-Инструменты-командной-строки">1.2. Инструменты командной строки</a></h2>
+<p>Команда <code>grep</code> (globally search for a regular expression and print
+matching lines) осуществляет поиск по образцу, определяемому регулярным
+выражением. Команда <code>sed</code> (stream editor) является строчным редактором,
+но главное ее использование состоит в замене по шаблону, как и в случае
+grep, заданному регулярным выражением.</p>
+<p>В табл. 1 показаны примеры некоторых базовых элементов регулярного
+выражения.</p>
+<table>
+<caption>Таблица 1. Некоторые базовые регулярные выражения</caption>
+<thead>
+<tr class="header">
+<th>Символ</th>
+<th>Действие</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Буквы, числа, некоторые знаки</code></td>
+<td>Обозначают сами себя</td>
+</tr>
+<tr class="even">
+<td><code>.</code></td>
+<td>Любой символ</td>
+</tr>
+<tr class="odd">
+<td><code>[множество символов]</code></td>
+<td>Любой символ из множества</td>
+</tr>
+<tr class="even">
+<td><code>[^множество символов]</code></td>
+<td>Любой символ не из множества</td>
+</tr>
+<tr class="odd">
+<td><code>^</code></td>
+<td>Начало строки</td>
+</tr>
+<tr class="even">
+<td><code>$</code></td>
+<td>Конец строки</td>
+</tr>
+<tr class="odd">
+<td><code>^</code></td>
+<td>Начало строки</td>
+</tr>
+<tr class="even">
+<td><code>выражение*</code></td>
+<td>Повторение выражения 0 или более раз</td>
+</tr>
+<tr class="odd">
+<td><code>выражение</code> <code>выражение</code></td>
+<td>Последовательность из выражений</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 1. Некоторые базовые регулярные выражения</p>
+<p>Веб-инструмент regex101 [<a href="1_2_-Instrumenty-komandnoi-stroki.html#ref-regex101">6</a>] может помочь в
+поэлементном разборе сложных регулярных выражений.</p>
+<p>С использованием <code>grep</code> и <code>sed</code> можно создать достаточно сложные схемы
+обработки данных. В частности, следующий код осуществляет проверку
+правописания для файла README.md на основе словаря из файла unix-words:</p>
+<pre><code>cat README.md | tr A-Z a-z | tr -cs A-Za-z '\n' | sort | uniq | grep -vx -f unix-words &gt;out ; cat out | wc -l | sed 's/$/ mispelled words!/'
+</code></pre>
+<p>Еще более изощренной, чем <code>grep</code> и <code>sed</code>, является команда <code>awk</code>. AWK
+(по именам авторов – Aho, Weinberger, Kernighan) представляет собой язык
+программирования для обработки текстовых данных.</p>
+<p>Ниже показан пример вывода колонки №5 из данных, предоставленных вызовом
+<code>ls -l</code>:</p>
+<pre><code>localhost:~# ls -l
+total 36
+-rw-r--r--    1 root     root           114 Jul  5  2020 bench.py
+-rwxr-xr-x    1 root     root            51 Nov  4 18:56 fact.sh
+-rwxr-xr-x    1 root     root            76 Nov  4 19:45 fact2.sh
+drwxr-xr-x    2 root     root            37 Nov  4 18:01 foo
+-rw-r--r--    1 root     root            76 Jul  3  2020 hello.c
+-rw-r--r--    1 root     root            22 Jun 26  2020 hello.js
+-rwxr-xr-x    1 root     root             6 Nov  4 18:44 lsl
+-rw-r--r--    1 root     root           151 Jul  5  2020 readme.txt
+-rwxr-xr-x    1 root     root            36 Nov  4 18:50 test.sh
+localhost:~# ls -l | awk '{ print $5 }'
+ 
+114
+51
+76
+37
+76
+22
+6
+151
+36
+</code></pre>
+<p>Средствами <code>awk</code> легко подсчитать общий размер файлов:</p>
+<pre><code>localhost:~# ls -l | awk '{ s += $5 } END { print s }'
+569
+</code></pre>
+<p>В заключение рассмотрим пример вывода на экран самой свежей новости с
+ресурса Hacker News:</p>
+<pre><code>#!/bin/sh
+N=$(curl -s https://hacker-news.firebaseio.com/v0/topstories.json | jq '.[0]')
+curl -s &quot;https://hacker-news.firebaseio.com/v0/item/$N.json&quot; | jq '.[&quot;title&quot;]' | cowsay
+</code></pre>
+<p>Вот как выглядит вывод этой программы:</p>
+<pre><code>root@Server584432:~# ./hn.sh
+ ________________________________________
+/ &quot;Finishing my first game while working \
+\ full-time&quot;                             /
+ ----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+</code></pre>
+<p>На тему анализа данных в командной строке существует целая книга
+[<a href="1_2_-Instrumenty-komandnoi-stroki.html#ref-janssens2021data">7</a>].</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="21-Нумерация-версий-ПО"><a class="header" href="#21-Нумерация-версий-ПО">2.1. Нумерация версий ПО</a></h2>
+<p>В программе, состоящей из нескольких модулей (программных библиотек,
+пакетов), подключение этих модулей может происходить следующими
+способами:</p>
+<ul>
+<li>статическое связывание, которое осуществляется на этапе компиляции;</li>
+<li>динамическое связывание, происходящее на этапе выполнения программы.</li>
+</ul>
+<p>Как программа, так и подключаемые к ней модули, обычно существуют в
+нескольких версиях.</p>
+<p>Существуют различные схемы нумерации версий:</p>
+<ul>
+<li>последовательные значения;</li>
+<li>дата выпуска;</li>
+<li>хеш-сумма содержимого;</li>
+<li>различные экзотические схемы (например, последовательные цифры числа
+<em>π</em> или <em>e</em>).</li>
+</ul>
+<p>Проблема <strong>ада зависимостей</strong> (dependency hell) состоит в наличии
+конфликтных ситуаций между зависимостями различных модулей. Например, в
+системном каталоге библиотек может быть только одна версия библиотеки
+<em>X</em>, при этом одна программа требует <em>X</em> в версии <em>A</em>, а другая – в
+несовместимой с <em>A</em> версии <em>B</em>.</p>
+<p>Для управления зависимостями между модулями необходима строгая и единая
+система нумерации версий, определяющая совместимые и несовместимые
+сочетания модулей.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="22-Семантическая-нумерация-версий"><a class="header" href="#22-Семантическая-нумерация-версий">2.2. Семантическая нумерация версий</a></h2>
+<p>В спецификации SemVer (semantic versioning) версия состоит из следующих
+основных компонентов (см. рис. 3):</p>
+<ol>
+<li>мажорная часть, означающая несовместимые с предыдущими версиями
+изменения;</li>
+<li>минорная часть, означающая, добавление обратно совместимой
+функциональности;</li>
+<li>патч, к которому относятся обратно совместимые исправления ошибок.</li>
+</ol>
+<figure>
+<img src="pm3.svg" id="fig:pm3" alt="Рис. 3. Формат версии по спецификации SemVer" /><figcaption aria-hidden="true">Рис. 3. Формат версии по спецификации SemVer</figcaption>
+</figure>
+<p>Сравнение двух версий осуществляется слева направо, до определения
+первого расхождения. Таким образом устанавливается порядок между
+версиями, а также могут быть введены интервалы версий.</p>
+<p>С помощью символа <code>^</code> указываются совместимый интервал версий. Например
+<code>~1.2.3</code> означает <code>&gt;=1.2.3</code> и <code>&lt;2.0.0</code>. Символ <code>~</code> определяет близкие
+друг к другу версии. Например <code>~1.2.3</code> означает <code>&gt;=1.2.3</code> и <code>&lt;1.3.0</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="23-Управление-пакетами"><a class="header" href="#23-Управление-пакетами">2.3. Управление пакетами</a></h2>
+<p>Менеджер пакетов предназначен для автоматического управления установкой,
+настройкой и обновлением специального вида модулей, называемых пакетами.</p>
+<p>Менеджеры пакетов бывают следующих видов:</p>
+<ol>
+<li>уровня ОС (например, RPM в Linux);</li>
+<li>уровня языка программирования (например, npm для JavaScript);</li>
+<li>уровня приложения (например, Package Control для редактора Sublime
+Text, управление плагинами для среды Eclipse).</li>
+</ol>
+<p><strong>Пакет</strong> содержит в некотором файловом формате программный код и
+метаданные. К <strong>метаданным</strong> относятся:</p>
+<ul>
+<li>указание авторства, версии и описание пакета;</li>
+<li>список зависимостей пакета;</li>
+<li>хеш-значение содержимого пакета.</li>
+</ul>
+<p>Для хранения пакетов используется <strong>репозиторий</strong>. Репозитории делятся
+на локальные, располагающиеся на компьютере пользователя и удаленные,
+размещаемые на сервере, предназначенном работы с конкретным менеджером
+пакетов.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="24-Менеджер-пакетов-apk"><a class="header" href="#24-Менеджер-пакетов-apk">2.4. Менеджер пакетов apk</a></h2>
+<p>Менеджер пакетов apk входит в дистрибутив Alpine ОС Linux.</p>
+<p>Работа c apk осуществляется из командной строки. Для добавления нового
+пакета необходимо использовать опцию add:</p>
+<pre><code>/ # apk add python3
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/main/x86_64/
+APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.14/community/x86_64/
+APKINDEX.tar.gz
+(1/13) Installing libbz2 (1.0.8-r1)
+(2/13) Installing expat (2.4.1-r0)
+(3/13) Installing libffi (3.3-r2)
+(4/13) Installing gdbm (1.19-r0)
+(5/13) Installing xz-libs (5.2.5-r0)
+(6/13) Installing libgcc (10.3.1_git20210424-r2)
+(7/13) Installing libstdc++ (10.3.1_git20210424-r2)
+(8/13) Installing mpdecimal (2.5.1-r1)
+(9/13) Installing ncurses-terminfo-base (6.2_p20210612-r0)
+(10/13) Installing ncurses-libs (6.2_p20210612-r0)
+(11/13) Installing readline (8.1.0-r0)
+(12/13) Installing sqlite-libs (3.35.5-r0)
+(13/13) Installing python3 (3.9.5-r1)
+Executing busybox-1.33.1-r3.trigger
+OK: 56 MiB in 27 packages
+</code></pre>
+<p>В первую очередь менеджером пакетов были загружены списки доступных
+пакетов из удаленного репозитория. В архиве APKINDEX.tar.gz можно найти
+информацию по устанавливаемому пакету и его зависимостям:</p>
+<pre><code>C:Q1A2S5Zfy6pdKftVzGVhkE5s9r1f4=
+P:python3
+V:3.9.5-r1
+A:x86_64
+S:13405337
+I:47747072
+T:A high-level scripting language
+U:https://www.python.org/
+L:PSF-2.0
+o:python3
+m:Natanael Copa &lt;ncopa@alpinelinux.org&gt;
+t:1620852262
+c:2d63700fe78744e22c497d2cf7f8610828f00544
+D:so:libbz2.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.1.1 so:libexpat.so.1 so:libffi.so.7 so:libgdbm.so.6 so:libgdbm_compat.so.4 so:liblzma.so.5 so:libmpdec.so.3 so:libncursesw.so.6 so:libpanelw.so.6 so:libreadline.so.8 so:libsqlite3.so.0 so:libssl.so.1.1 so:libz.so.1
+p:so:libpython3.9.so.1.0=1.0 so:libpython3.so=0 cmd:2to3 cmd:2to3-3.9 cmd:pydoc3 cmd:pydoc3.9 cmd:python3 cmd:python3.9 py3.9:README.txt=3.9.5-r1
+</code></pre>
+<p>Здесь <code>P:</code> определяет имя пакета, а <code>V:</code> – его версию. С помощью <code>D:</code> в
+последних строках определяются зависимости, а с помощью <code>p:</code> – те
+модули, которые пакет предоставляет после своей установки.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="25-Менеджер-пакетов-apt"><a class="header" href="#25-Менеджер-пакетов-apt">2.5. Менеджер пакетов apt</a></h2>
+<p>В дистрибутиве Ubuntu ОС Linux используется менеджер пакетов apt.</p>
+<p>Для установки пакета используется команда apt с опцией install:</p>
+<pre><code>apt install instead
+</code></pre>
+<p>В файле Packages, расположенном на удаленном репозитории, располагается
+информация о доступных для установке пакетах.</p>
+<p>Пакет instead имеет следующее описание:</p>
+<pre><code>Package: instead
+Architecture: amd64
+Version: 3.2.1-1
+Priority: optional
+Section: universe/games
+Origin: Ubuntu
+Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;
+Original-Maintainer: Sam Protsenko &lt;joe.skb7@gmail.com&gt;
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 527
+Depends: libc6 (&gt;= 2.14), libgdk-pixbuf2.0-0 (&gt;= 2.22.0), libglib2.0-0 (&gt;= 2.12.0), libgtk2.0-0 (&gt;= 2.8.0), liblua5.1-0, libsdl2-2.0-0 (&gt;= 2.0.8), libsdl2-image-2.0-0 (&gt;= 2.0.2), libsdl2-mixer-2.0-0 (&gt;= 2.0.2), libsdl2-ttf-2.0-0 (&gt;= 2.0.14), zlib1g (&gt;= 1:1.1.4), instead-data (= 3.2.1-1)
+Filename: pool/universe/i/instead/instead_3.2.1-1_amd64.deb
+Size: 224840
+MD5sum: ae8edb2974cece3ff42ce664bcba8485
+SHA1: 8e4f27d806d5822e2364c26b6a77502e6e1aada1
+SHA256: f0d20dd6d7e3de3c2981bfe3a6fbab0f0be8ecc7bfd3f71736508bee0fe063df
+Homepage: https://instead-hub.github.io/
+Description: Simple text adventures/visual novels engine
+Description-md5: ef0040d4434ac942fb089e9e171d022f
+</code></pre>
+<p>Как можно заметить, анализируя строку <code>Depends:</code>, помимо системных
+библиотек пакет instead зависит также от пакета instead-data, у которого
+также имеется описание:</p>
+<pre><code>Package: instead-data
+Architecture: all
+Version: 3.2.1-1
+Priority: optional
+Section: universe/games
+Source: instead
+Origin: Ubuntu
+Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;
+Original-Maintainer: Sam Protsenko &lt;joe.skb7@gmail.com&gt;
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 4092
+Depends: fonts-liberation
+Recommends: instead
+Filename: pool/universe/i/instead/instead-data_3.2.1-1_all.deb
+Size: 3681604
+MD5sum: e244752081374392d024ab100648213a
+SHA1: b560cbc4118b95b5633be48ed40b679652dc1322
+SHA256: 06582dc02515a031297dc7ae2e280795f7052266dbb4aee1e2a8406d132ea2c8
+Homepage: https://instead-hub.github.io/
+Description: Data files for INSTEAD
+Description-md5: abbaa9f2bdb5492dca18ea9558b57a9d
+</code></pre>
+<p>Зависимости пакета instead приведены в графе на рис. 4.</p>
+<figure>
+<img src="pm1.svg" id="fig:pm1" alt="Рис. 4. Зависимости пакета instead" /><figcaption aria-hidden="true">Рис. 4. Зависимости пакета instead</figcaption>
+</figure>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="26-Задача-разрешения-зависимостей-пакетов"><a class="header" href="#26-Задача-разрешения-зависимостей-пакетов">2.6. Задача разрешения зависимостей пакетов</a></h2>
+<p>Задача разрешения зависимостей, которую решает менеджер пакетов, в общем
+виде относится к труднорешаемым и может быть определена следующим
+образом.</p>
+<p>Дано:</p>
+<ol>
+<li>Состояние локального репозитория, содержащего уже установленные
+пакеты.</li>
+<li>Состояние удаленного репозитория, в котором находятся все доступные
+к установке пакеты.</li>
+<li>Имя устанавливаемого пакета.</li>
+</ol>
+<p>Необходимо получить план установки нового пакета с разрешением всех его
+зависимостей. При этом желателен такой вариант решения, который требует
+установки минимального числа новых пакетов.</p>
+<p>Пример задачи разрешения зависимостей показан на рис. 5. Обратите
+внимание, что из всех возможных версий пакета menu, менеджеру пакетов
+необходимо выбрать 1.0.0, иначе не получится разрешить зависимости
+пакета icons.</p>
+<figure>
+<img src="pm2.svg" id="fig:pm2" alt="Рис. 5. Пример задачи разрешения зависимостей пакетов" /><figcaption aria-hidden="true">Рис. 5. Пример задачи разрешения зависимостей пакетов</figcaption>
+</figure>
+<p>Для задачи разрешения зависимостей в менеджерах пакетов сегодня все чаще
+используются универсальные решатели NP-полных задач: SAT-решатели
+[<a href="2_6_-Zadacha-razresheniia-zavisimostei-paketov.html#ref-tucker2007opium">8</a>], решатели для задачи программирования в
+ограничениях [<a href="2_6_-Zadacha-razresheniia-zavisimostei-paketov.html#ref-pubgrub">9</a>] и другие
+[<a href="2_6_-Zadacha-razresheniia-zavisimostei-paketov.html#ref-abate2020dependency">10</a>].</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="31-Инфраструктура-как-код"><a class="header" href="#31-Инфраструктура-как-код">3.1. Инфраструктура как код</a></h2>
+<p>Параметры конфигурации ПО обычно хранятся в специальном виде, доступном
+для редактирования пользователями и другими программами. Для хранения
+может использоваться специальная база данных, но наиболее
+распространенным вариантом хранения настроек программы являются
+конфигурационные файлы, содержимое которых написано на одном из
+конфигурационных языков. Многие программные инструменты конфигурирования
+ПО используют конфигурационные языки.</p>
+<p><strong>Конфигурационный язык</strong> – язык описания параметров конфигурации ПО.
+<strong>Конфигурационный файл</strong> представлен на конфигурационном языке и
+предназначен для редактирования пользователями и другими программами.</p>
+<p>К преимуществам конфигурационных языков относят:</p>
+<ul>
+<li>удобный человеко-читаемый синтаксис, который дает возможность внести
+изменения в конфигурацию быстрее, чем при использовании
+GUI-инструментов;</li>
+<li>удобный машинно-читаемый синтаксис для автоматической обработки
+параметров конфигурационного файла внешними программами;</li>
+<li>ограниченные средства программируемости, позволяющие
+автоматизировать рутинные действия.</li>
+</ul>
+<p>В качестве конфигурационных языков могут использоваться:</p>
+<ul>
+<li>непрограммируемые форматы описания конфигурации,</li>
+<li>языки программирования общего назначения,</li>
+<li>программируемые предметно-ориентированные языки для задач
+конфигурационного управления.</li>
+</ul>
+<p>Современный подход «инфраструктура как код» (infrastructure as code)
+предполагает широкое использование в конфигурационном управлении
+конфигурационных языков.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="32-Формальные-языки-и-грамматики"><a class="header" href="#32-Формальные-языки-и-грамматики">3.2. Формальные языки и грамматики</a></h2>
+<p>Компьютерные языки являются подмножеством формальных языков.</p>
+<p><strong>Формальный язык</strong> состоит из множества строк конечной длины,
+называемых словами. Слова состоят из символов, а символы содержатся в
+алфавите – конечном множестве символов.</p>
+<p>В этом определении предполагается, что для установления принадлежности
+некоторой строки формальному языку необходимо сначала перечислить все
+возможные строки на этом языке, что, разумеется, является непрактичным
+подходом.</p>
+<p>Рассмотрим иной способ определения языка. <strong>Регулярный язык</strong>,
+являющийся теоретической основой регулярных выражений, может быть описан
+следующим образом:</p>
+<ol>
+<li>Пустая строка ε или одиночный символ из алфавита являются регулярным
+языком.</li>
+<li>Если <em>A</em> это регулярный язык, то <em>A</em><sup>*</sup> также является
+регулярным языком. Операция <em>A</em><sup>*</sup> обозначает повторение
+<em>R</em> 0 или более раз.</li>
+<li>Если <em>A</em> и <em>B</em> – регулярные языки, то <em>A</em>|<em>B</em> тоже является
+регулярным языком. Операция <em>A</em>|<em>B</em> обозначает выбор из <em>A</em> или <em>B</em>.</li>
+<li>Если <em>A</em> и <em>B</em> – регулярные языки, то <em>A**B</em> тоже является
+регулярным языком. Операция <em>A**B</em> обозначает последовательность:
+<em>A</em>, за которым следует <em>B</em>.</li>
+</ol>
+<p>Введенных базовых операций достаточно, чтобы определить дополнительные
+конструкции, использующиеся в регулярных выражениях. Например,
+конструкцию <code>A+</code> можно определить, как <code>AA*</code>, а конструкция <code>A?</code>
+заменяется конструкцией <code>A|ε</code>.</p>
+<p>Мощности регулярных языков, тем не менее, не хватает для описания многих
+важных компьютерных языков. В частности, с помощью регулярного языка
+невозможно описать конструкции произвольной вложенности. Это, в том
+числе, касается разбора и HTML-кода, и даже простого выражения, в
+котором присутствуют лишь правильно расставленные скобки с произвольной
+глубиной вложенности.</p>
+<p>Другой способ определения формального языка – формальная грамматика,
+задающая общие правила построения языка. Этот способ используется для
+определения синтаксиса компьютерных языков. Формальная грамматика –
+метаязык, то есть язык, который определяет язык. В частности, для
+описания регулярных языков может быть задана регулярная грамматика.</p>
+<p>Формальные грамматики на практике используются для следующих целей:</p>
+<ul>
+<li>лексический и синтаксический разбор компьютерного языка;</li>
+<li>порождение случайных фраз на компьютерном языке, например, для задач
+тестирования.</li>
+</ul>
+<p>Более мощным, чем регулярные языки, формализмом описания компьютерных
+языков является <strong>контекстно-свободная грамматика</strong>.</p>
+<p>Контекстно-свободную грамматику можно представить себе в виде программы
+на ограниченном языке программирования. В этом языке есть «имена
+функций» (нетерминалы, имена правил) и «определения функций» (тела
+правил). В определениях содержатся «вызовы функций» и «вывод символов»
+определяемого языка (терминалов). Работа программы начинается с «главной
+функции», называемой начальным нетерминалом.</p>
+<p>Благодаря возможности использования рекурсии в грамматических правилах
+контекстно-свободные грамматики широко используются для определения
+синтаксиса компьютерных языков.</p>
+<p>Контекстно-свободную грамматику можно представить в форме так называемой
+железнодорожной или синтаксической диаграммы.</p>
+<p>На рис. 6 показан пример грамматики арифметического выражения.</p>
+<figure>
+<img src="dsl1.svg" id="fig:dsl1" alt="Рис. 6. Синтаксическая диаграмма грамматики арифметического выражения" /><figcaption aria-hidden="true">Рис. 6. Синтаксическая диаграмма грамматики арифметического выражения</figcaption>
+</figure>
+<p>В текстовой форме контекстно-свободная грамматика определяется с помощью
+формы Бэкуса-Наура (БНФ). На практике, в БНФ часто добавляются
+конструкции регулярных выражений для упрощения описания синтаксиса.</p>
+<p>Ниже представлен пример грамматики арифметического выражения в БНФ:</p>
+<pre><code>&lt;Значение&gt; ::= &lt;Число&gt; | &lt;Переменная&gt;
+&lt;Операция&gt; ::= &quot;+&quot; | &quot;-&quot; | &quot;*&quot; | &quot;/&quot;
+&lt;Выражение&gt; ::= &lt;Значение&gt; | &lt;Выражение&gt; &lt;Операция&gt; &lt;Выражение&gt; | &quot;(&quot; &lt;Выражение&gt; &quot;)&quot;
+</code></pre>
+<p>Для автоматизации задач лексического (уровень базовых лексических
+единиц) и синтаксического (уровень иерархических конструкций) разбора
+существуют специальные инструменты. Примерами таких инструментов
+являются ANTLR [<a href="3_2_-Formalnye-iazyki-i-grammatiki.html#ref-antlr">11</a>] для Java, SLY [<a href="3_2_-Formalnye-iazyki-i-grammatiki.html#ref-sly">12</a>] для
+Python и Flex/Bison для C++.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="33-Компьютерные-языки"><a class="header" href="#33-Компьютерные-языки">3.3. Компьютерные языки</a></h2>
+<p>Рассмотрим представленную на рис. 7 упрощенную классификацию
+компьютерных языков.</p>
+<figure>
+<img src="dsl2.svg" id="fig:dsl2" alt="Рис. 7. Упрощенная классификация компьютерных языков" /><figcaption aria-hidden="true">Рис. 7. Упрощенная классификация компьютерных языков</figcaption>
+</figure>
+<p>Тьюринг-полными называются языки, на которых можно реализовать модель
+машины Тьюринга, а значит – реализовать любой алгоритм. К таким языкам
+относится, в частности, большинство языков программирования.</p>
+<p>Тьюринг-полнота необязательно является полезным свойством языка. Для
+Тьюринг-неполных, ограниченных языков может быть легче осуществить
+статический анализ и преобразования на уровне компилятора.</p>
+<p>Предметно-ориентированные языки (domain-specific language, DSL)
+ориентированы задачи некоторого узкого класса, поэтому, зачастую
+являются Тьюринг-неполными. Основное достоинство DSL – использование
+предметно-ориентированной нотации.</p>
+<p>Известно множество специализированных нотаций. Например, нотация
+химических формул или нотная нотация. Математики древних цивилизаций
+описывали математические задачи на естественном языке с использованием
+сложных систем счисления. Поэтому установление даже некоторых
+тривиальных для современного школьника, оперирующего алгебраической
+нотацией, математических фактов могло было затруднено для математика
+древности. Заслуживает внимания гипотеза лингвистической
+относительности, которая предполагает наличие влияния структуры языка на
+мышление.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="34-Простые-форматы-описания-конфигурации"><a class="header" href="#34-Простые-форматы-описания-конфигурации">3.4. Простые форматы описания конфигурации</a></h2>
+<p>Одним из старейших форматов описания как кода, так и данных являются
+<strong>S-выражения</strong> языка Lisp. Это нотация для древовидных структур,
+реализованных в виде вложенных списков.</p>
+<p>Грамматика S-выражений в БНФ:</p>
+<pre><code>&lt;s-exp&gt; ::= &lt;atom&gt; |  '(' &lt;s-exp-list&gt; ')'
+&lt;s-exp-list&gt; ::= &lt;sexp&gt; &lt;s-exp-list&gt; |  
+&lt;atom&gt; ::= &lt;symbol&gt; |  &lt;integer&gt; |  #t  |  #f
+</code></pre>
+<p>Пример S-выражения:</p>
+<pre><code>(users
+   ((uid 1)   (name root) (gid 1))
+   ((uid 108) (name peter) (gid 108))
+   ((uid 109) (name alex) (gid 109)))
+</code></pre>
+<p>К недостаткам S-выражений для описания конфигурации относятся:</p>
+<ul>
+<li>сложность чтения для человека синтаксиса с большим числом скобок;</li>
+<li>нет стандарта S-выражений для описания конфигурационных данных.</li>
+</ul>
+<p>Классическим способом представления файлов конфигурации является
+<strong>формат INI</strong> из Windows, а также схожие с ним варианты conf из Unix. В
+основе формата – последовательность пара ключ-значение. Пары схожего
+назначения объединяются в секции:</p>
+<pre><code>[секция_1]
+параметр1=значение1
+параметр2=значение2
+ 
+[секция_2]
+параметр1=значение1
+параметр2=значение2
+</code></pre>
+<p>В (расширенной) БНФ:</p>
+<pre><code>ini ::= {section}
+section ::= &quot;[&quot; name &quot;]&quot; &quot;\n&quot; {entry}
+entry ::= key &quot;=&quot; value &quot;\n&quot;
+</code></pre>
+<p>Здесь фигурные скобки обозначают повторение 0 или более раз.</p>
+<p>Пример INI-файла (system.ini):</p>
+<pre><code>; for 16-bit app support
+[386Enh]
+woafont=dosapp.fon
+EGA80WOA.FON=EGA80WOA.FON
+EGA40WOA.FON=EGA40WOA.FON
+CGA80WOA.FON=CGA80WOA.FON
+CGA40WOA.FON=CGA40WOA.FON
+ 
+[drivers]
+wave=mmdrv.dll
+timer=timer.drv
+ 
+[mci]
+[network]
+Bios=1438818414
+SSID=29519693
+</code></pre>
+<p>К недостаткам INI для описания конфигурации относятся:</p>
+<ul>
+<li>отсутствие поддержки вложенных конструкций;</li>
+<li>отсутствие стандарта INI для описания конфигурационных данных.</li>
+</ul>
+<p>Еще недавно наибольшую популярность среди форматов конфигурационных
+данных имел <strong>XML</strong> (eXtensible Markup Language).</p>
+<p>XML разрабатывался как язык с простым формальным синтаксисом, удобный
+для создания и обработки документов программами и одновременно удобный
+для чтения и создания документов человеком, с подчеркиванием
+нацеленности на использование в Интернете.</p>
+<p>В самом базовом виде XML напоминает S-выражения, в которых вместо скобок
+используются открывающийся и закрывающийся именованные теги.</p>
+<p>Пример XML-данных:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;shiporder orderid=&quot;889923&quot;
+xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xsi:noNamespaceSchemaLocation=&quot;shiporder.xsd&quot;&gt;
+   &lt;orderperson&gt;John Smith&lt;/orderperson&gt;
+   &lt;shipto&gt;
+      &lt;name&gt;Ola Nordmann&lt;/name&gt;
+      &lt;address&gt;Langgt 23&lt;/address&gt;
+      &lt;city&gt;4000 Stavanger&lt;/city&gt;
+      &lt;country&gt;Norway&lt;/country&gt;
+   &lt;/shipto&gt;
+   &lt;item&gt;
+      &lt;title&gt;Hide your heart&lt;/title&gt;
+      &lt;quantity&gt;1&lt;/quantity&gt;
+      &lt;price&gt;9.90&lt;/price&gt;
+   &lt;/item&gt;
+&lt;/shiporder&gt;
+</code></pre>
+<p>Важной особенностью XML является поддержка специальных схем для
+определения корректности XML-данных: DTD (Document Type Definition), XML
+Schema и другие. DTD определяет:</p>
+<ul>
+<li>состав элементов, которые могут использоваться в XML документе;</li>
+<li>описание моделей содержания, т.е. правил вхождения одних элементов в
+другие;</li>
+<li>состав атрибутов, с какими элементами XML документа они могут
+использоваться;</li>
+<li>каким образом атрибуты могут применяться в элементах;</li>
+<li>описание сущностей, включаемых в XML документ.</li>
+</ul>
+<p>В XML Schema дополнительно введены типы данных для элементов. Фрагмент
+XML Schema описания элемента item из примера выше:</p>
+<pre><code>&lt;xs:element name=&quot;item&quot; maxOccurs=&quot;unbounded&quot;&gt;
+  &lt;xs:complexType&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name=&quot;title&quot; type=&quot;xs:string&quot;/&gt;
+      &lt;xs:element name=&quot;note&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot;/&gt;
+      &lt;xs:element name=&quot;quantity&quot; type=&quot;xs:positiveInteger&quot;/&gt;
+      &lt;xs:element name=&quot;price&quot; type=&quot;xs:decimal&quot;/&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:element&gt;
+</code></pre>
+<p>К недостаткам XML для описания конфигурации относится высокая сложность
+формата, как для чтения человеком, так и для программного разбора.</p>
+<p>Формат <strong>JSON</strong> (JavaScript Object Notation) основан на синтаксисе
+JavaScript. Изначально он использовался в качестве текстового формата
+обмена данными, но со временем все чаще стал применяться и в качестве
+формата описания конфигурации приложения.</p>
+<p>В JSON используются следующие типы данных:</p>
+<ul>
+<li>число в формате double;</li>
+<li>строка;</li>
+<li>логическое значение true или false;</li>
+<li>массив значений любого поддерживаемого типа;</li>
+<li>объект – словарь пар ключ-значение, где ключ – строка, а значение –
+любой поддерживаемый тип;</li>
+<li>специальное значение null.</li>
+</ul>
+<p>Пример JSON-данных:</p>
+<pre><code>{&quot;menu&quot;: {
+  &quot;id&quot;: &quot;file&quot;,
+  &quot;value&quot;: &quot;File&quot;,
+  &quot;popup&quot;: {
+    &quot;menuitem&quot;: [
+      {&quot;value&quot;: &quot;New&quot;, &quot;onclick&quot;: &quot;CreateNewDoc()&quot;},
+      {&quot;value&quot;: &quot;Open&quot;, &quot;onclick&quot;: &quot;OpenDoc()&quot;},
+      {&quot;value&quot;: &quot;Close&quot;, &quot;onclick&quot;: &quot;CloseDoc()&quot;}
+    ]
+  }
+}}
+</code></pre>
+<p>Для проверки корректности JSON-данных в формат позже была добавлена
+схема – JSON Schema, которая во многом схожа с XML Schema.</p>
+<p>К недостаткам JSON для описания конфигурации относится отсутствие
+поддержки комментариев.</p>
+<p>Формат <strong>YAML</strong> (YAML Ain’t Markup Language) предназначен для
+сериализации данных, но также часто используется в качестве
+конфигурационного языка. YAML с точки зрения синтаксиса имеет сходство с
+языком Python – для определения вложенности конструкций используются
+отступы. Особенностью YAML является возможность создания ( с помощью
+<code>&amp;</code>) и использования (с помощью <code>*</code>) ссылок на элементы документа. Это
+позволяет не приводить полностью повторно встречающиеся данные.</p>
+<p>Пример YAML-файла:</p>
+<pre><code>–
+receipt:     Oz-Ware Purchase Invoice
+date:        2012-08-06
+customer:
+    first_name:   Dorothy
+    family_name:  Gale
+ 
+items:
+    - part_no:   A4786
+      descrip:   Water Bucket (Filled)
+      price:     1.47
+      quantity:  4
+ 
+    - part_no:   E1628
+      descrip:   High Heeled &quot;Ruby&quot; Slippers
+      size:      8
+      price:     133.7
+      quantity:  1
+ 
+bill-to:  &amp;id001
+    street: |
+            123 Tornado Alley
+            Suite 16
+    city:   East Centerville
+    state:  KS
+ 
+ship-to:  *id001
+...
+</code></pre>
+<p>К недостаткам YAML для описания конфигурации относятся:</p>
+<ul>
+<li>сложность редактирования сильно вложенных элементов, проблемы с
+отступом;</li>
+<li>сложность стандарта YAML (размер файла спецификации больше, чем у
+XML).</li>
+</ul>
+<p>Формат <strong>TOML</strong> (Tom’s Obvious, Minimal Language) специально
+предназначен для использования в конфигурационных файлах. Его синтаксис
+основан на INI. <a href="https://toml.io/en/v1.0.0-rc.1#spec">Спецификация TOML</a>
+не имеет БНФ-описания.</p>
+<p>Пример TOML-данных:</p>
+<pre><code># This is a TOML document
+ 
+title = &quot;TOML Example&quot;
+ 
+[owner]
+name = &quot;Tom Preston-Werner&quot;
+dob = 1979-05-27T07:32:00-08:00
+ 
+[database]
+enabled = true
+ports = [ 8001, 8001, 8002 ]
+data = [ [&quot;delta&quot;, &quot;phi&quot;], [3.14] ]
+temp_targets = { cpu = 79.5, case = 72.0 }
+ 
+[servers]
+ 
+  [servers.alpha]
+  ip = &quot;10.0.0.1&quot;
+  role = &quot;frontend&quot;
+ 
+  [servers.beta]
+  ip = &quot;10.0.0.2&quot;
+  role = &quot;backend&quot;
+</code></pre>
+<p>К недостаткам TOML для описания конфигурации относится сложность
+спецификации языка.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="35-Языки-общего-назначения-как-конфигурационные"><a class="header" href="#35-Языки-общего-назначения-как-конфигурационные">3.5. Языки общего назначения как конфигурационные</a></h2>
+<p>Использование языка программирования общего назначения для описания
+конфигурации ПО обладает рядом преимуществ по сравнению с простыми
+непрограммируемыми конфигурационными форматами:</p>
+<ul>
+<li>поддержка функций;</li>
+<li>поддержка циклов;</li>
+<li>поддержка типов данных;</li>
+<li>поддержка импорта файлов.</li>
+</ul>
+<p>Благодаря поддержке функций, циклов и разбиению файлов на модули
+достигается принцип DRY (Don’t repeat yourself) – не допускать
+повторения одной и той же информации в программе. В результате
+конфигурационные файлы имеют компактную, удобную для редактирования
+форму.</p>
+<p>Поддержка типов данных, в том числе пользовательских, позволяет
+осуществить на уровне типов проверку корректности программы – то, для
+чего в таких форматах, как XML, используются схемы.</p>
+<p>Некоторые примеры использования языков общего назначения в качестве
+конфигурационных языков:</p>
+<ul>
+<li>В текстовом редакторе Emacs используется встроенный язык
+<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Customizations.html">Elisp</a>
+для описания конфигурации;</li>
+<li>В БД
+<a href="https://www.tarantool.io/en/doc/1.10/reference/configuration/#index-init-label">Tarantool</a>
+используется Lua;</li>
+<li>Конфигурации на языке Python используются в
+<a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">setuptools</a>
+и Jupyter;</li>
+<li>В
+<a href="https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:build_scripts_are_code">Gradle</a>
+конфигурация сборки может быть описана на Groovy и Kotlin.</li>
+</ul>
+<p>К недостаткам языков общего назначения для задач конфигурирования
+относятся:</p>
+<ul>
+<li>небезопасное исполнение стороннего кода;</li>
+<li>сложность, чрезмерная выразительность языка (Тьюринг-полнота),
+мешающая задачам анализа и порождения конфигурационных данных.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="36-Программируемые-конфигурационные-языки"><a class="header" href="#36-Программируемые-конфигурационные-языки">3.6. Программируемые конфигурационные языки</a></h2>
+<p>К основным DRY-элементам программируемых конфигурационных языков, можно
+отнести:</p>
+<ul>
+<li>переменные;</li>
+<li>арифметические операции;</li>
+<li>функции в математическом смысле;</li>
+<li>ветвления;</li>
+<li>операции построения многоэлементных массивов и иных составных
+объектов;</li>
+<li>операции импорта сторонних модулей;</li>
+</ul>
+<p><strong>Jsonnet</strong> является расширенным вариантом JSON и представляет собой
+Тьюринг-полный конфигурационный язык с динамической типизацией.</p>
+<p>Пример описания данных на Jsonnet:</p>
+<pre><code>local makeUser(user) = {
+  local home = std.format(&quot;/home/%s&quot;, user),
+  local privateKey = std.format(&quot;%s/.ssh/id_ed25519&quot;, home),
+  local publicKey  = std.format(&quot;%s.pub&quot;, privateKey),
+  home: home,
+  privateKey: privateKey,
+  publicKey: publicKey
+};
+
+[
+  makeUser(&quot;bill&quot;),
+  makeUser(&quot;jane&quot;)
+]
+</code></pre>
+<p>Результат преобразования в JSON:</p>
+<pre><code>[
+  {
+    &quot;home&quot;: &quot;/home/bill&quot;,
+    &quot;privateKey&quot;: &quot;/home/bill/.ssh/id_ed25519&quot;,
+    &quot;publicKey&quot;: &quot;/home/bill/.ssh/id_ed25519.pub&quot;
+  },
+  {
+    &quot;home&quot;: &quot;/home/jane&quot;,
+    &quot;privateKey&quot;: &quot;/home/jane/.ssh/id_ed25519&quot;,
+    &quot;publicKey&quot;: &quot;/home/jane/.ssh/id_ed25519.pub&quot;
+  }
+]
+</code></pre>
+<p>Еще одним программируемым конфигурационным языком является <strong>Dhall</strong>.
+Этот язык со статической типизацией, основанный на принципах
+функционального программирования. Авторы определяют Dhall, как JSON +
+функции + типы + импорты. Важной особенностью Dhall является тот факт,
+что это Тьюринг-неполный язык. В Dhall имеется режим нормализации
+представления, при котором все языковые абстракции разворачиваются и
+результат представляет собой уровень представления JSON или YAML.</p>
+<p>Пример описания данных на Dhall:</p>
+<pre><code>let makeUser = \(user : Text) -&gt;
+      let home       = &quot;/home/${user}&quot;
+      let privateKey = &quot;${home}/.ssh/id_ed25519&quot;
+      let publicKey  = &quot;${privateKey}.pub&quot;
+      in  { home = home
+          , privateKey = privateKey
+          , publicKey = publicKey
+          }
+
+in  [ makeUser &quot;bill&quot;
+    , makeUser &quot;jane&quot;
+    ]
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="41-Виды-систем-сборки"><a class="header" href="#41-Виды-систем-сборки">4.1. Виды систем сборки</a></h2>
+<p>Сборка программного проекта может состоять из большого числа этапов,
+среди которых: компиляция модулей, подготовка файлов данных и
+преобразование их форматов, генерирование документации. Чтобы не
+повторять рутинные действия из раза в раз можно написать программу на
+языке интерпретатора командной строки. Тем не менее, работа простых
+сборочных скриптов на больших проектах часто занимает непозволительно
+большое время.</p>
+<p>К системе сборки [<a href="4_1_-Vidy-sistem-sborki.html#ref-mokhov2020build">13</a>] могут быть предъявлены
+следующие требования:</p>
+<ul>
+<li>каждая сборочная задача выполняется не более одного раза, а сами
+задачи выполняются лишь в том случае, если они прямо или косвенно
+зависят от входных данных, которые изменились с предыдущей сборки
+проекта;</li>
+<li>задачи, которые прямо и косвенно не зависят друг от друга, имеется
+возможность выполнить параллельно.</li>
+</ul>
+<p>К <em>основным элементам системы сборки</em> относятся:</p>
+<ul>
+<li>таблица, в которой содержатся ключи – задачи и значения – файлы или
+другие данные, определяющие результат выполнения задачи;</li>
+<li>план выполнения задач с определением действий по выполнению каждой
+задачи и указанием стартовой задачи;</li>
+<li>алгоритм планировщика задач и способ определения задач, которые не
+нуждаются в перестроении.</li>
+</ul>
+<p>Система сборки принимает на вход таблицу и план выполнения задач и
+возвращает таблицу в актуальном состоянии – для стартовой задачи и всех
+ее зависимостей выполнены необходимые действия.</p>
+<p>Система сборки принимает описание задачи, целевой ключ и хранилище и
+возвращает измененное хранилище, в котором целевой ключ и всего его
+зависимости принимают актуальные значения.</p>
+<p><em>Таблица</em> может быть представлена одним из следующих основных способов:</p>
+<ol>
+<li>файловая система вместо отдельной таблицы и время модификации
+файлов. Если время модификации одного из файлов-зависимостей задачи
+более новое, чем время модификации файла-результата самой задачи –
+необходимо перестроить задачу;</li>
+<li>хранилище с хеш-значениями файлов в качестве ключей. Если хэш файла,
+связанного с задачей, изменился, то задачу необходимо перестроить.</li>
+</ol>
+<p><em>План выполнения задач</em> описывается на языке системы сборки. Такие языки
+можно отнести к классу конфигурационных языков.</p>
+<p>Системы сборки различаются по типу используемого <em>алгоритма
+планировщика</em>:</p>
+<ul>
+<li>алгоритм топологической сортировки графа зависимостей задач;</li>
+<li>алгоритм на основе рестартов задач;</li>
+<li>алгоритм на основе приостановки задач;</li>
+</ul>
+<p>Алгоритм на основе рестартов задач устроен следующим образом. Рассмотрим
+ситуацию, когда выполняется задача <em>A</em> и было установлено, что она имеет
+зависимую задачу <em>B</em>, которая должна быть выполнена в первую очередь. В
+этом случае выполнение задачи <em>A</em> отменяется, выполняется задача <em>B</em>,
+затем выполнение задачи <em>A</em> стартует повторно.</p>
+<p>Алгоритм на основе приостановки задач отличается тем, что не отменяет
+выполнение задачи <em>A</em> полностью, а лишь приостанавливает это выполнение.
+После завершения задачи <em>B</em> система сборки возвращается к
+приостановленной ранее задаче <em>A</em> и продолжает ее выполнение.</p>
+<p>Также системы сборки различаются по <strong>типу зависимостей</strong>:</p>
+<ul>
+<li>статические зависимости;</li>
+<li>динамические зависимости.</li>
+</ul>
+<p>Статические зависимости устанавливаются на этапе составления плана
+выполнения задач. Динамические зависимости обнаруживаются в процессе
+сборки. Например, одна из задач формирует файл-список файлов-рисунков,
+для каждого из которых необходимо выполнить отдельную задачу –
+преобразовать рисунок в некоторый графический формат.</p>
+<p>В системе сборки может применяться <strong>техника раннего среза</strong> (early
+cutoff) – если задача выполнена, но ее результат не изменился с
+предыдущей сборки, то нет необходимости исполнять зависимые задачи, то
+есть процесс сборки можно завершить ранее. На практике такая ситуация
+определяется по хеш-значению файла, связанного с задачей. Например, если
+в файл main.c был добавлен новый комментарий, сборка может быть
+остановлена после определения отсутствия изменений в хеш-значении
+объектного файла – main.o.</p>
+<p>При использовании облачной системы сборки скорость сборки может быть
+существенно увеличена, благодаря разделению результатов сборки между
+отдельными разработчиками. Облачная система сборки может поддержать
+вариант сборки, при котором локально образуются только конечные
+результаты сборки, а все промежуточные файлы остаются в облаке.</p>
+<p>На рис. 8 приведен пример сценария работы с облачной системой сборки.
+Пользователь совершает следующие действия:</p>
+<ol>
+<li>Загружает исходные тексты, их хеш-значения 1, 2 и 3.</li>
+<li>Затем пользователь запрашивает сборку main.exe. Система сборки
+определяет с помощью изучения истории предыдущих сборок, что кто-то
+уже скомпилировал ранее эти исходные тексты для main.exe. Результаты
+их сборки хранятся в облаке с хешами 4 (util.o) и 5 (main.o).
+Система сборки далее определяет, что для зависимостей с такими
+хешами есть готовый main.exe с хешем 6. По ключу 6 из облачного
+хранилища извлекается конечный результат;</li>
+<li>Далее пользователь изменяет util.c, и его хеш становится равен 7. В
+облаке комбинации хешей (7, 2) не существует, то есть ранее никто
+еще не компилировал такой вариант исходного кода. Процесс
+продолжается до получения нового main.exe, после чего новые варианты
+файлов и их хеш-значения сохраняются в облаке.</li>
+</ol>
+<figure>
+<img src="make1.svg" id="fig:make1" alt="Рис. 8. Пример сценария работы с облачной системой сборки: 1) загрузка исходных текстов, 2) построение main.exe, 3) модификация util.c и пересборка" /><figcaption aria-hidden="true">Рис. 8. Пример сценария работы с облачной системой сборки: 1) загрузка исходных текстов, 2) построение main.exe, 3) модификация util.c и пересборка</figcaption>
+</figure>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="42-Топологическая-сортировка"><a class="header" href="#42-Топологическая-сортировка">4.2. Топологическая сортировка</a></h2>
+<p>Топологическая сортировка является популярным алгоритмом планировщика в
+системах сборки.</p>
+<p>Рассмотрим пример, показанный на рис. 9. Здесь целевой задачей является
+«экипировка», для достижения которой необходимо выполнить подзадачи в
+корректном порядке. Таким порядком может быть следующий:</p>
+<pre><code>1 3 2 5 7 4 6 8
+</code></pre>
+<p>Легко заметить, что это не единственный корректный порядок. Следующий
+вариант тоже имеет право на существование:</p>
+<pre><code>1 3 4 2 6 5 7 8
+</code></pre>
+<p>Обратите внимание, что такие задачи, как, например, 4 и 5, можно было бы
+выполнить одновременно, поскольку они не зависят друг от друга.
+Одевающемуся человеку это выполнить проблематично, но в случае сборки ПО
+возможность параллельного выполнения подзадач является полезной.</p>
+<p>Простой алгоритм топологической сортировки состоит из следующих шагов:</p>
+<ol>
+<li>Найти узлы графа без входных зависимостей и добавить их к списку
+результатов.</li>
+<li>Удалить ранее найденные узлы. Если узлов в графе не осталось, то
+возвратить результат. В противном случае перейти к п.1.</li>
+</ol>
+<p>На практике чаще используется алгоритм топологической сортировки,
+основанный на обходе графа в глубину.</p>
+<p>Топологическая сортировка определена для графов, не имеющих циклических
+зависимостей между задачами. На практике циклы в графе могут возникнуть
+при использовании динамических зависимостей.</p>
+<figure>
+<img src="make2.svg" id="fig:make2" alt="Рис. 9. Пример графа зависимостей задач" /><figcaption aria-hidden="true">Рис. 9. Пример графа зависимостей задач</figcaption>
+</figure>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="43-Система-сборки-make"><a class="header" href="#43-Система-сборки-make">4.3. Система сборки Make</a></h2>
+<p>Система сборки Make является старейшей в своем классе (1976 г.) и при
+этом до сих пор активно используется разработчиками.</p>
+<p>К основным характеристикам Make относятся:</p>
+<ul>
+<li>Использование файловой системы, вместо таблицы, а также времени
+модификации файлов для определения необходимости пересборки задач;</li>
+<li>Поддержка только статических зависимостей;</li>
+<li>Использование алгоритма топологической сортировки в качестве
+алгоритма планировщика.</li>
+</ul>
+<p>В Make используется специальный конфигурационный файл с именем Makefile
+для определения плана сборки. Основными элементами декларативного языка
+Makefile являются определения переменных, а также правила сборки,
+состоящие из задачи-цели и ряда задач-зависимостей для этой цели.</p>
+<p>Рассмотрим пример определения Makefile для графа «экипировки» на рис. 9.</p>
+<pre><code>equipment: shoes jacket
+        @echo $@
+
+underwear:
+        @echo $@
+
+socks: underwear
+        @echo $@
+
+shirt: underwear
+        @echo $@
+
+trousers: shirt
+        @echo $@
+
+sweater: shirt
+        @echo $@
+
+shoes: trousers
+        @echo $@
+
+jacket: sweater
+        @echo $@
+</code></pre>
+<p>В этом примере имеется последовательность правил следующего вида:</p>
+<pre><code>цель: зависимости
+        действие
+</code></pre>
+<p>Действия представляют собой последовательность строк, это команды для
+интерпретатора командой строки ОС. Командами могут быть, в частности,
+вызовы компилятора или вызовы инструментов преобразования форматов
+данных.</p>
+<p>Обратите внимание, что строки действий выделяются символом табуляции.
+Именно табуляцией, а не пробелами. Если была получена ошибка
+<code>missing separator</code> при выполнении Makefile, то речь идет именно о
+путанице с пробелами и табуляциями.</p>
+<p>Цели и зависимости представляют собой, с точки зрения make, имена
+файлов. У этих файлов и проверяется время последней модификации. Если
+файл цели задачи отсутствует, то сборка этой задачи всегда будет
+произведена.</p>
+<p>Вызов make в каталоге, содержащем приведенный выше Makefile, выдаст
+следующую информацию:</p>
+<pre><code>underwear
+shirt
+trousers
+shoes
+sweater
+jacket
+equipment
+</code></pre>
+<p>В правилах могут использоваться специальные переменные, среди которых:</p>
+<ul>
+<li><code>$@</code>. Имя цели.</li>
+<li><code>$&lt;</code>. Имя первой зависимости.</li>
+<li><code>$^</code>. Список имен всех зависимостей.</li>
+</ul>
+<p>Переменные в Makefile определяются, как показано в примере ниже:</p>
+<pre><code>SHOW = @echo $@
+%:
+    $(SHOW)
+
+equipment: shoes jacket
+underwear:
+socks: underwear
+shirt: underwear
+trousers: shirt
+sweater: shirt
+shoes: trousers
+jacket: sweater
+</code></pre>
+<p>Здесь используется определение шаблона с помощью <code>%</code>, что обозначает
+произвольное имя. В рассматриваемом примере это приводит к выполнению
+указанного действия для всех целей.</p>
+<p>Утилита make по умолчанию начинает выполнение с первой цели, указанной в
+Makefile. Можно также указать и конкретную цель для сборки:</p>
+<pre><code># make trousers
+underwear
+shirt
+trousers
+</code></pre>
+<p>В Makefile часто добавляются псевдоцели, такие как all (собрать все) и
+clean (очистить от временных файлов). Для того, чтобы утилита make могла
+отличить псевдоцели от файлов, используется специальная цель .PHONY.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="51-О-системах-контроля-версий"><a class="header" href="#51-О-системах-контроля-версий">5.1. О системах контроля версий</a></h2>
+<p>Предположим, программист, незнакомый с инструментами контроля версий,
+хочет внести новое, экспериментальное изменение в свою программу. Наш
+программист сохраняет текущее состояние программного проекта в отдельном
+каталоге и далее занимается нововведениями в своем коде. В какой-то
+момент оказывается, что экспериментальная идея оказалась неудачной и
+программист восстанавливает состояние проекта из ранее сохраненного
+каталога. Такой способ управления версиями проекта требует большой
+дисциплины и ручного труда. Особенно трудоемкой работа с версиями
+проекта становится в условиях коллективной разработки. Именно эту работу
+и призвана автоматизировать система контроля версий.</p>
+<p><strong>Система контроля версий</strong> (СКВ, Version Control System, VCS) –
+основной инструмент конфигурационного управления, позволяющий управлять
+изменениями (версиями) в файлах или иных наборах данных.</p>
+<p><strong>Коммит</strong> (commit) – фиксация факта изменений в СКВ.</p>
+<p><strong>Репозиторий</strong> (repository, repo) – место хранения данных проекта,
+управляемого СКВ.</p>
+<p><strong>Ветка</strong> (branch) – отдельная копия части репозитория, в которую можно
+вносить изменения, не влияющие на другие ветки.</p>
+<p>Различают следующие типы систем контроля версий (СКВ):</p>
+<ul>
+<li>локальные системы;</li>
+<li>централизованные системы;</li>
+<li>распределенные системы.</li>
+</ul>
+<p><strong>Локальные СКВ</strong> (local VCS) относятся к самым первым системам контроля
+версий, которые появились еще в начале 70-х. Локальность означает, что
+история изменений хранится на компьютере пользователя. В локальных СКВ
+файлы хранятся в виде патчей – изменений между соседними версиями файла
+(см. утилиту diff в UNIX), что позволяет экономить дисковое
+пространство. В коллективном режиме пользователи обмениваются между
+собой (обычно по электронной почте) патчами. Очевидно, что такой подход
+к коллективной разработке нельзя назвать удобным.</p>
+<p><strong>Централизованные СКВ</strong> (centralized VCS) используют клиент-серверную
+архитектуру. СКВ и связанный с ней репозиторий проекта теперь находятся
+на сервере. Каждый пользователь на своем локальном компьютере имеет
+только ту часть общего репозитория, с который непосредственно работает.
+Такой подход упрощает коллективную разработку, однако проблемы с
+доступом к серверу СКВ могут затруднить работу всего коллектива.</p>
+<p><strong>Распределенные СКВ</strong> (distributed VCS) отличаются использованием
+полной копии проекта на каждом из компьютеров пользователя, что
+обеспечивает лучшую сохранность проекта, чем в случае централизованных
+СКВ. В распределенных СКВ могут использоваться различные схемы
+взаимодействия между удаленными репозиториями и, в частности, может
+моделироваться работа по клиент-серверной модели.</p>
+<p>При совместной работе над одними и теми же файлами неизбежно возникают
+конфликты доступа к данным. В СКВ используются следующие способы
+разрешения конфликтов:</p>
+<ul>
+<li>блокировка доступа к файлу первым пользователем, который к нему
+обратился;</li>
+<li>использование локальных копий файла у каждого пользователя с
+последующим слиянием общих результатов работы в автоматическом или
+ручном режиме.</li>
+</ul>
+<p>В табл. 2 представлены три поколения СКВ.</p>
+<table>
+<caption>Таблица 2. Поколения систем контроля версий</caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 35%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Поколение</th>
+<th>Модель взаимодействия</th>
+<th>Единица операции</th>
+<th>Примеры</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Локальная</td>
+<td>Файл</td>
+<td>SCCS, RCS</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Централизованная</td>
+<td>Файл / множество файлов</td>
+<td>CVS, SourceSafe, Subversion, Team Foundation Server</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Распределенная</td>
+<td>Множество файлов</td>
+<td>Bazaar, Git, Mercurial, Fossil</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 2. Поколения систем контроля версий</p>
+<p>История развития СКВ показана на рис. 10.</p>
+<figure>
+<img src="git6.svg" id="fig:git6" alt="Рис. 10. История развития систем контроля версий" /><figcaption aria-hidden="true">Рис. 10. История развития систем контроля версий</figcaption>
+</figure>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="52-Система-контроля-версий-git"><a class="header" href="#52-Система-контроля-версий-git">5.2. Система контроля версий Git</a></h2>
+<p>Git [<a href="5_2_-Sistema-kontrolia-versii-Git.html#ref-git">14</a>] является децентрализованной СКВ. Разработана эта
+система была Л. Торвальдсом в 2005 году для нужд управления версиями
+ядра ОС Linux. Сегодня Git является самой популярной СКВ. Работу с Git
+не назовешь простой и многие пользователи критикуют эту систему за
+неудобный интерфейс командной строки. Тем не менее, основные
+архитектурные решения в Git являются изящными и логичными, но для того,
+чтобы их оценить, необходимо узнать, как работает Git изнутри.</p>
+<h3 id="521-Простейшие-команды-git"><a class="header" href="#521-Простейшие-команды-git">5.2.1. Простейшие команды Git</a></h3>
+<p>Рассмотрим сначала самые распространенные команды Git.</p>
+<p>Создание Git-репозитория в текущем каталоге:</p>
+<pre><code>~# mkdir my_repo
+~# cd my_repo
+~/my_repo# git init .
+Initialized empty Git repository in /root/my_repo/.git/
+</code></pre>
+<p>Состояние git-репозитория:</p>
+<pre><code>~/my_repo# git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use &quot;git add&quot; to track)
+</code></pre>
+<p>В данном случае Git сообщает очевидное – в проекте еще не было коммитов.</p>
+<p>Создадим теперь первый файл в репозитории:</p>
+<pre><code>~/my_repo# echo &quot;# Some text&quot; &gt; readme.md
+root@DESKTOP-OI5FV17:~/my_repo# git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        readme.md
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</code></pre>
+<p>Теперь информация о статусе репозитория изменилась – появился
+неотслеживаемый файл readme.md.</p>
+<p>В Git файлы могут находиться в следующих состояниях:</p>
+<ul>
+<li>неотслеживаемые файлы (untracked) – файлы, которые Git не учитывает
+в своей работе,</li>
+<li>измененные файлы (modified) – отслеживаемые файлы, содержимое
+которых было изменено, но не добавлено в область индексирования;</li>
+<li>индексированные файлы (staged) – измененные файлы, добавленные в
+область индексирования;</li>
+<li>зафиксированные файлы (commited) – файлы, добавленные в коммит.</li>
+</ul>
+<p>Таким образом, при создании нового коммита сначала нужно добавить
+выбранные файлы в специальную промежуточную зону – область
+индексирования.</p>
+<p>Проиндексировать файлы можно с помощью команды Git add:</p>
+<pre><code>~/my_repo# git add readme.md
+~/my_repo# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+        new file:   readme.md
+</code></pre>
+<p>После добавления всех необходимых файлов в зону индекса (это можно
+сделать одной командой: <code>git add .</code>) создается коммит, но если в Git еще
+не заданы данные пользователя, то необходимо сначала их указать:</p>
+<pre><code>~/my_repo# git config --local user.name &quot;Peter&quot;
+~/my_repo# git config --local user.email &quot;peter@example.com&quot;
+~/my_repo# git commit -m &quot;first commit&quot;
+[master (root-commit) 3ba9fa7] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.md
+</code></pre>
+<p>Теперь первая версия проекта зафиксирована. Информацию о коммитах выдает
+следующая команда:</p>
+<pre><code>~/my_repo# git log
+commit 3ba9fa7980a4ba36086e66389b1ef95cbbf317e2 (HEAD -&gt; master)
+Author: Peter &lt;peter@example.com&gt;
+Date:   Tue Nov 16 17:08:47 2021 +0300
+
+    first commit
+</code></pre>
+<p>Обратите внимание на длинную последовательность <code>3ba9fa...</code>. Это
+хеш-значение коммита, определяющее текущую версию репозитория. Текущая
+ветка проекта является главной и традиционно называется <code>master</code> или
+<code>main</code>.</p>
+<p>Работу с версиями в Git можно изобразить в виде графа коммитов, см.
+рис. 11.</p>
+<figure>
+<img src="git1.svg" id="fig:git1" alt="Рис. 11. Состояние репозитория после нескольких коммитов" /><figcaption aria-hidden="true">Рис. 11. Состояние репозитория после нескольких коммитов</figcaption>
+</figure>
+<h3 id="522-Ветвление-в-git"><a class="header" href="#522-Ветвление-в-git">5.2.2. Ветвление в Git</a></h3>
+<p>Традиционно ветвление в СКВ позволяет разделять проект на независимые
+сущности (ветки), где изменения в конкретной ветке не затрагивают
+остальные ветки. Это полезно в условиях коллективной разработки, когда
+программисты одновременно работают над разными частями программы.
+Представим ситуацию, когда есть задача по разработке новой
+функциональности, но необходимо параллельно вносить и исправления в
+проект, не затрагивая новые функции. В таких ситуациях используется
+ветвление: под новые задачи создается отдельная ветка, и разработка
+ведется в ней.</p>
+<p>Рассмотрим на примерах ветвление в Git.</p>
+<p>Новая ветка создается с помощью команды <code>git branch имя</code>. Переключиться
+на ветку можно с помощью <code>git checkout имя</code>. Так как создание ветки и
+переключение на нее – зачастую следующие друг за другом операции, их
+можно выполнить одной командой <code>git checkout -b имя</code>.</p>
+<p>Предположим, работа над репозиторием my_repo развивалась следующим
+образом:</p>
+<pre><code>git branch tests
+git add ...
+git commit -m &quot;...&quot;
+git checkout tests
+git add ...
+git commit -m &quot;...&quot;
+git add ...
+git commit -m &quot;...&quot;
+</code></pre>
+<p>На рис. 12 показано новое состояние графа коммитов репозитория.</p>
+<figure>
+<img src="git2.svg" id="fig:git2" alt="Рис. 12. Работа с дополнительной веткой" /><figcaption aria-hidden="true">Рис. 12. Работа с дополнительной веткой</figcaption>
+</figure>
+<p>В какой-то момент ветки сливаются (merge):</p>
+<pre><code>git checkout master
+git merge tests
+</code></pre>
+<p>На рис. 13 показан результат этого слияния. Был создан новый коммит,
+объединяющий в себе изменения из обеих веток.</p>
+<p>Так как ветки master и tests указывают на один и тот же коммит, то ветку
+test, если она больше не нужна, можно удалить командой
+<code>git branch -d tests</code>.</p>
+<figure>
+<img src="git3.svg" id="fig:git3" alt="Рис. 13. Слияние веток" /><figcaption aria-hidden="true">Рис. 13. Слияние веток</figcaption>
+</figure>
+<p>Еще одним способом объединения веток является перебазирование,
+осуществляемой командой <code>git rebase</code>:</p>
+<pre><code>git checkout master
+git rebase tests
+</code></pre>
+<p>На рис. 14 показан результат перебазирования ветки tests на master.
+Здесь изменения, созданные в tests, были применены поверх master. В
+результате получена линейная история коммитов, которую, зачастую,
+изучать проще, чем результат, полученный с помощью merge.</p>
+<figure>
+<img src="git4.svg" id="fig:git4" alt="Рис. 14. Перебазирование веток" /><figcaption aria-hidden="true">Рис. 14. Перебазирование веток</figcaption>
+</figure>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="53-git-изнутри"><a class="header" href="#53-git-изнутри">5.3. Git изнутри</a></h2>
+<p>Все служебную информацию о репозитории Git хранит в подкаталоге .git.
+Основой Git является таблица объектов, адресуемая по ключам –
+хеш-значениям этих объектов. Такая схема хранения позволяет
+автоматически задавать уникальную версию для каждого файла (эта версия
+определяется ключом в таблице, то есть хеш-значением содержимого файла),
+а также дает возможность избежать дублирования файлов с одинаковым
+содержимым.</p>
+<p>В Git используются следующие типы объектов:</p>
+<ul>
+<li>blob (binary large object) – содержимое файлов репозитория,</li>
+<li>дерево – текущее состояние или снимок файловой иерархии репозитория,</li>
+<li>коммит – информация о коммите.</li>
+</ul>
+<p>На рис. 15 показано более детальное состояние репозитория для примера с
+перебазированием из предыдущего раздела.</p>
+<figure>
+<img src="git5.svg" id="fig:git5" alt="Рис. 15. Взаимосвязи объектов в репозитории" /><figcaption aria-hidden="true">Рис. 15. Взаимосвязи объектов в репозитории</figcaption>
+</figure>
+<p>Попробуем найти в нашем тестовом репозитории my_repo (в его состоянии
+на момент первого коммита) информацию о хеш-значениях веток:</p>
+<pre><code># cd .git
+~/my_repo/.git# ls
+COMMIT_EDITMSG  HEAD  branches  config  description  hooks  index  info  logs  objects  refs
+~/my_repo/.git# cd refs
+~/my_repo/.git/refs# ls
+heads  tags
+~/my_repo/.git/refs# cd heads
+~/my_repo/.git/refs/heads# ls
+master
+~/my_repo/.git/refs/heads# cat master
+3ba9fa7980a4ba36086e66389b1ef95cbbf317e2
+</code></pre>
+<p>Зная хеш-значение объекта master можно попробовать найти его в таблице
+объектов:</p>
+<pre><code>~/my_repo/.git/refs/heads# cd ..
+~/my_repo/.git/refs# cd ..
+~/my_repo/.git# cd objects/
+~/.git/objects# ls
+07  3b  7d  info  pack
+~/my_repo/.git/objects# cd 3b
+~/my_repo/.git/objects/3b# ls
+a9fa7980a4ba36086e66389b1ef95cbbf317e2
+</code></pre>
+<p>Подкаталоги с числами в objects указывают на начальную часть
+хеш-значения объекта, сам же файл объекта можно найти соответствующего
+подкаталога.</p>
+<p>Файлы, содержащие объекты внутри objects, хранятся в двоичном формате.
+Для отображения информации об объекте по его хеш-значению можно
+использовать следующую команду:</p>
+<pre><code>~/my_repo# git cat-file -p 3ba9fa7980a4ba36086e66389b1ef95cbbf317e2
+tree 074f8b59918b080288259854fcf875a6b8e543fe
+author Peter &lt;peter@example.com&gt; 1637071727 +0300
+committer Peter &lt;peter@example.com&gt; 1637071727 +0300
+
+first commit
+</code></pre>
+<p>Был выдан объект коммита. Объекты этого типа включают в себя:</p>
+<ul>
+<li>хеш-значение связанного с коммитом объекта дерева;</li>
+<li>хеш-значения родителей коммита (в рассматриваемом случае коммит
+единственный, поэтому информация о его родителях не показана);</li>
+<li>метаданные, в том числе указание авторства и текст коммита.</li>
+</ul>
+<p>Попробуем теперь изучить объект дерева по его полученному хеш-значению:</p>
+<pre><code>~/my_repo# git cat-file -p 074f8b59918b080288259854fcf875a6b8e543fe
+100644 blob 7dfce3922d94e459d1545a9fc568be0369eaa973    readme.md
+</code></pre>
+<p>В нашем случае файловая иерархия состоит из всего одного файла. Объекты
+типа дерева включают в себя:</p>
+<ul>
+<li>хеш-значения blob-объектов;</li>
+<li>хеш-значения объектов деревьев;</li>
+<li>указание прав доступа к файлам и каталогам.</li>
+</ul>
+<p>Blob-объект для readme.md можно изучить аналогичным образом.</p>
+<p>Обратите внимание, что в Git хеш-значение единственного коммита
+характеризует не только репозиторий на момент совершения коммита, но и
+всю предшествующую над ним работу. Это достигается благодаря
+использованию в Git иерархии хеш-значений («хеш-значения от
+хеш-значений»). Благодаря такой организации данных любые внесенные
+искажения в репозиторий или в одну из его предыдущих версий могут быть
+немедленно выявлены.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="6-Документация-как-код"><a class="header" href="#6-Документация-как-код">6. Документация как код</a></h1>
+<p>Как известно, большинство программистов не любит писать документацию к
+своим проектам. На это есть причины. В частности, документацию трудно
+поддерживать в актуальном состоянии в процессе разработки программы.
+Кроме того, традиционный подход к ведению технической документации с
+использованием редакторов в духе Microsoft Word с точки зрения
+разработчика сильно отличается от процессов ведения программного
+проекта.</p>
+<p>В связи с вышесказанным перспективным является подход «документация как
+код» (docs as code), основная идея которого в использовании для создания
+технической документации тех же процессов, что и для разработки
+программ. Подход «документация как код» отличается следующими
+особенностями:</p>
+<ul>
+<li>Использование текстовых языков разметки, удобных как для чтения
+человеком, так и с точки зрения машинной обработки.</li>
+<li>Использование текстовых языков описания графических материалов.</li>
+<li>Использование системы контроля версий для хранения проекта
+документации.</li>
+<li>Использование инструментов командной строки для автоматической
+проверки, сборки документации и непрерывной интеграции (continuous
+integration).</li>
+<li>Ориентация на выходной web-формат.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="61-Языки-разметки"><a class="header" href="#61-Языки-разметки">6.1. Языки разметки</a></h2>
+<p>Языки разметки, помимо очевидной возможности написания текстов,
+поддерживают специальные команды, отвечающие за внешний вид и
+структурные особенности документа. В отличие от обычных
+WYSIWYG-редакторов («что вижу на экране, то и получу в документе») язык
+разметки позволяет документ «запрограммировать», при этом «программа» на
+языке разметки и ее результат в виде документа отличаются друг от друга.</p>
+<p>Очевидным примером языка разметки является HTML, но для задач
+составления документации было создано множество специальных языков, в
+частности:</p>
+<ul>
+<li>LaTeX,</li>
+<li>Markdown,</li>
+<li>reStructuredText,</li>
+<li>AsciiDoc.</li>
+</ul>
+<p>Важным достоинством языка разметки является удобство использование
+системы контроля версий – в истории репозитория легко отследить
+изменения, внесенные в документ. Этого не удалось бы добиться с
+двоичными форматами в духе docx.</p>
+<p>Одной из важнейших проблем проектирования языка разметки является
+обеспечение необходимой гибкости в компьютерной верстке документа при
+использовании облегченного, почти «невидимого» для пользователя
+командного языка.</p>
+<p>Один из древнейших и, пожалуй, самый мощный язык разметки – TeX, который
+используется в одноименной системе компьютерной верстки. TeX был
+разработан Д. Кнутом в 1978 году для задач написания литературы в
+области компьютерных наук. В 1984 году Л. Лэмпорт создал набор
+макрорасширений для TeX под названием LaTeX. Сегодня LaTeX используется
+для написания статьей в журналах по математике и физике, создания
+технических книг, дипломов и диссертаций.</p>
+<p>LaTeX отличают средства автоматизации создания документов, это касается,
+в частности, построения списка литературы, нумерации элементов и ссылок
+на них, оптимизации размещения элементов на страницах и описания
+математических формул.</p>
+<p>Ниже представлен пример простого документа в LaTeX:</p>
+<pre><code>\documentclass[14pt]{article} % Формат страниц
+\usepackage{polyglossia} % Поддержка русского языка
+\setmainlanguage{russian}
+\setmainfont{Times New Roman} % Настройка шрифта
+
+\title{Тестовый документ} % Заголовок
+\author{П.Н. Советов} % Автор
+\date{\today} % Дата создания
+   
+\begin{document} % Тело документа
+
+\maketitle % Вставка заголовка
+     
+Это простой \textbf{пример} документа в \LaTeX.
+
+\end{document}
+</code></pre>
+<p>Можно заметить, что команды в LaTeX предваряются символом <code>\</code> и могут
+иметь аргументы, заключенные в скобки различных форм.</p>
+<p>Результат компиляции документа с помощью <code>xelatex</code> показан на рис. 16.</p>
+<figure>
+<img src="docs1.svg" id="fig:docs1" alt="Рис. 16. Результат компиляции LaTeX-документа" /><figcaption aria-hidden="true">Рис. 16. Результат компиляции LaTeX-документа</figcaption>
+</figure>
+<p>Особый интерес представляет использующийся в LaTeX язык разметки
+математических формул. Формулы обрамляются символами <code>$</code> (встраивание в
+текст) или <code>$$</code> (в отдельной строке). Примеры простых формул
+представлены ниже:</p>
+<pre><code>$$
+a^n + b^n = c^n
+$$
+
+$$
+x_{1,2}=\frac{-b \pm \sqrt {b^2-4ac}}{2a}
+$$
+
+$$
+f(x) = \frac{1}{\sigma \sqrt{2\pi} }
+    e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+$$
+
+$$
+\eta(T|a)= \sum_{v\in vals(a)} {\frac{|S_a{(v)}|}{|T|}
+    \cdot \eta\left(S_a{\left(v\right)}\right)}
+$$
+</code></pre>
+<p>Результат компиляции формул представлен на рис. 17.</p>
+<figure>
+<img src="docs2.svg" id="fig:docs2" alt="Рис. 17. Полученные формулы" /><figcaption aria-hidden="true">Рис. 17. Полученные формулы</figcaption>
+</figure>
+<p>Знакомство с языком описания формул LaTeX очень полезно, поскольку этот
+язык или его подмножества используются во многих современных системах,
+например, в языке разметки Wikipedia.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="62-Грамотное-программирование"><a class="header" href="#62-Грамотное-программирование">6.2. Грамотное программирование</a></h2>
+<p>Как уже говорилось выше, особенную проблему представляет разделенность
+программного кода и документации на программный проект. Ранней попыткой
+решить указанную проблему является подход «грамотного программирования»
+(literate programming) Д. Кнута в виде системы WEB, созданной в 1984
+году. WEB основана на системе TeX и позволяет вести документацию с
+внедренным в нее программным кодом.</p>
+<p>С помощью инструмента <code>weave</code> из WEB-файла извлекается только часть,
+связанная с документацией. С помощью инструмента <code>tangle</code> из WEB-файла
+извлекается программный код. Схема работы WEB показана на рис. 18.</p>
+<figure>
+<img src="docs3.svg" id="fig:docs3" alt="Рис. 18. Схема работы системы WEB" /><figcaption aria-hidden="true">Рис. 18. Схема работы системы WEB</figcaption>
+</figure>
+<p>На рис. 19 показан пример LaTeX-документа, извлеченного из WEB-файла.</p>
+<figure>
+<img src="docs4.svg" id="fig:docs4" alt="Рис. 19. Пример WEB-документа" /><figcaption aria-hidden="true">Рис. 19. Пример WEB-документа</figcaption>
+</figure>
+<p>Из приведенного WEB-документа может быть извлечен также следующий код:</p>
+<pre><code>def insert(tree, key):
+    if not tree:
+        tree = Node(key)
+    elif key &lt; tree.key:
+        tree = Node(tree.key, insert(tree.left, key), tree.right)
+    elif key &gt; tree.key:
+        tree = Node(tree.key, tree.left, insert(tree.right, key))
+    return tree
+</code></pre>
+<p>В какой-то мере черты грамотного программирования унаследовала система
+Jupyter-блокнотов, в которой документы представлены в виде
+последовательности ячеек. Ячейка может либо содержать программный код,
+либо – документацию. Jupyter-блокноты используются, в основном, в
+области научно-технических расчетов и для анализа данных.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="63-markdown-и-pandoc"><a class="header" href="#63-markdown-и-pandoc">6.3. Markdown и Pandoc</a></h2>
+<p>Одним из простейших языков разметки является Markdown. Его авторы
+преследовали цель получения незаметного командного языка, чтобы файлы на
+Markdown было легко читать, как есть, даже без трансляции в какое-то
+выходное представление.</p>
+<p>Ниже показаны примеры элементов синтаксиса Markdown:</p>
+<pre><code># Заголовок 1
+## Заголовок 2
+## Заголовок 3
+
+Параграф с текстом и [ссылкой](https://pandoc.org/).
+
+Параграф с текстом, выделенным **жирным** и *курсивом*.
+
+&gt; Важная цитата (Автор)
+
+Список элементов:
+
+1. Первый.
+1. Второй.
+    * Вложенный первый.
+    * Вложенный второй.
+1. Третий.
+
+| Поле 1      | Поле 2      |
+| ----------- | ----------- |
+| Данные 1    | Данные 3    |
+| Данные 2    | Данные 4    |
+
+```python
+{
+  &quot;name&quot;: &quot;Ivan&quot;,
+  &quot;last_name&quot;: &quot;Drago&quot;,
+  &quot;age&quot;: 25
+}
+```
+</code></pre>
+<p>Markdown, в силу простоты и читаемости своего синтаксиса, представляет
+собой возможную альтернативу LaTeX. Однако, при использовании
+более-менее сложного форматирования документов возможностей Markdown
+быстро перестанет хватать. В этой ситуации может помочь инструмент
+Pandoc [<a href="6_3_-Markdown-i-Pandoc.html#ref-pandoc">15</a>], предназначенный для трансляции документов
+из одного представления в другое. Особенность Pandoc в том, что в нем
+поддерживается расширенный вариант Markdown, который, в свою очередь,
+можно дополнить рядом сторонних модулей.</p>
+<p>Архитектура Pandoc показана на рис. 20. Работу Pandoc можно разбить на
+три этапа:</p>
+<ol>
+<li>Одно из входных представлений с помощью поддерживаемых трансляторов
+для чтения (readers) преобразуется во внутреннее представление
+Pandoc – дерево абстрактного синтаксиса.</li>
+<li>На уровне AST могут бы применены пользовательские фильтры (filters).</li>
+<li>Полученное AST с помощью поддерживаемых трансляторов для записи
+(writers) преобразуется в одно из выходных представлений.</li>
+</ol>
+<p>В варианте markdown от Pandoс поддерживаются некоторые элементы LaTeX, в
+частности, язык описания математических формул.</p>
+<figure>
+<img src="docs5.svg" id="fig:docs5" alt="Рис. 20. Архитектура Pandoc" /><figcaption aria-hidden="true">Рис. 20. Архитектура Pandoc</figcaption>
+</figure>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="64-Языки-описания-диаграмм"><a class="header" href="#64-Языки-описания-диаграмм">6.4. Языки описания диаграмм</a></h2>
+<p>Как и в случае текста, языки описания графических материалов позволяют
+легко вносить и отслеживать изменения в рисунок. Еще одним преимуществом
+таких языков является возможность автоматизации построения рисунков. Это
+касается, в частности, построения различных диаграмм на основе
+автоматического анализа классов и модулей из программного кода.</p>
+<p>Одним из наиболее популярных инструментов в этой области является
+Graphviz, в котором для описания графов различного вида используется
+язык Dot.</p>
+<p>Пример кода на языке Dot показан далее:</p>
+<pre><code>digraph G {
+  n1 [style=filled, color=brown1, label=&quot;1&quot;, shape=oval]
+  n2 [style=filled, color=darkolivegreen1, label=&quot;2&quot;, shape=box]
+  n3 [style=filled, color=aquamarine, label=&quot;3&quot;, shape=circle]
+
+  n1 -&gt; n2 -&gt; n3
+  n3 -&gt; n1
+}
+</code></pre>
+<p>Результат компиляции в графический файл представлен на рис. 21.</p>
+<figure>
+<img src="docs6.svg" id="fig:docs6" alt="Рис. 21. Результат работы Graphviz" /><figcaption aria-hidden="true">Рис. 21. Результат работы Graphviz</figcaption>
+</figure>
+<p>Еще одним популярным инструментом является PlantUML, предназначенный для
+создания как UML-диаграмм различного вида, таки для диаграмм иного вида
+(диаграммы Ганта, интеллект-карты и проч.).</p>
+<p>Ниже представлен пример диаграммы, описанной на языке PlantUML:</p>
+<pre><code>@startuml
+skinparam monochrome true
+skinparam shadowing false
+
+A -&gt; B: шаг
+
+activate B
+B -&gt; C: шаг
+
+activate C
+C --&gt; C: действие
+C -&gt; B: шаг
+deactivate C
+
+B -&gt; A: шаг
+deactivate B
+@enduml
+</code></pre>
+<p>Результат компиляции в графический файл представлен на рис. 22.</p>
+<figure>
+<img src="docs7.svg" id="fig:docs7" alt="Рис. 22. Результат работы PlantUML" /><figcaption aria-hidden="true">Рис. 22. Результат работы PlantUML</figcaption>
+</figure>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="65-Генераторы-документации-на-основе-исходных-текстов"><a class="header" href="#65-Генераторы-документации-на-основе-исходных-текстов">6.5. Генераторы документации на основе исходных текстов</a></h2>
+<p>Очевидным способом объединения документации и программного кода является
+подробное комментирование программного кода. При внесении изменений в
+программу имеет возможность сразу же обновить документирующие поведение
+программы комментарии в коде. Существуют инструменты, позволяющие
+автоматически извлечь из файла программы специальным образом оформленные
+комментарии и оформить результат в виде справочной документации по
+программному модулю.</p>
+<p>Примеры генераторов документации:</p>
+<ul>
+<li>Javadoc для языка Java.</li>
+<li>Doxygen для C++ и некоторых других языков.</li>
+<li>Расширения для системы Sphinx, поддерживающие целый ряд языков.</li>
+</ul>
+<p>Ниже показан пример программы на языке C со специальными комментариями,
+поддерживаемыми системой Doxygen. Обратите внимание на специальные
+ключевые слова <code>\file</code>, <code>\brief</code> и <code>\param</code>:</p>
+<pre><code>/// \file main.cpp
+/// Модуль main.
+
+#include &lt;stdio.h&gt;
+
+/// \brief Главная функция.
+/// \param int argc Счетчик аргументов.
+/// \param char **argv Указатель на аргументы.
+int main(int argc, char **argv) {
+    return 0;
+}
+</code></pre>
+<p>Далее приведен пример программы на языке Питон, с комментариями,
+поддерживаемыми системой Sphinx. Обратите внимание на специальные
+ключевые слова <code>param</code>, <code>type</code> и <code>return</code>:</p>
+<pre><code>&quot;&quot;&quot;
+Модуль main.
+&quot;&quot;&quot;
+
+def main(x, y):
+    &quot;&quot;&quot;
+    Функция main.
+
+    :param x: Параметр x.
+    :type x: str
+    :param y: Параметр y.
+    :type y: int
+    :return: Ничего не возвращает.
+    &quot;&quot;&quot;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="71-Что-такое-виртуализация"><a class="header" href="#71-Что-такое-виртуализация">7.1. Что такое виртуализация</a></h2>
+<p>Определение слова «виртуальный» можно найти, к примеру, в толковом
+словаре Ожегова:</p>
+<blockquote>
+<p>«ВИРТУАЛЬНЫЙ, -ая, -ое; -лен, -льна (спец.). Несуществующий,
+невозможный. Виртуальные миры. Виртуальная реальность
+(несуществующая,воображаемая). В. образ (в компьютерных играх)».</p>
+</blockquote>
+<p>Некоторые сюжетные элементы на тему виртуальности из мира фантастики
+вполне встречаются и в компьютерном мире. Возьмем ситуацию, когда герой
+обнаруживает внутри виртуального мира еще один, внутренний виртуальный
+мир. Это похоже на запуск в браузере ОС Linux, в которой, в свою
+очередь, запускается программа DOSBox, имитирующая работу старого
+компьютера под управлением MS-DOS.</p>
+<p>Можно вспомнить еще одну типичную для фантастических произведений
+ситуацию, когда герой пытается понять, в реальном ли он находится мире,
+или же – в виртуальном. Подобная проблема возникает, к примеру, для
+выполняемой компьютерной программы, которая пытается определить, не
+происходит ли нежелательный анализ ее поведения под управлением
+виртуальной машины.</p>
+<p>В случае компьютерной системы «реальным миром» является хост-система, а
+«виртуальным миром» – виртуальная машина, гостевая система или, в более
+общем смысле, некоторый виртуальный ресурс.</p>
+<p><strong>Виртуализацией</strong> будем называть создание виртуальной (абстрактной,
+имитируемой) версии ресурса компьютерной системы. Для виртуализации
+типичными являются следующие свойства:</p>
+<ul>
+<li>изолированность виртуального ресурса от хост-системы и от других
+виртуальных ресурсов,</li>
+<li>разделение ресурсов хост-системы между виртуальными ресурсами.</li>
+</ul>
+<p>На рис. 23 показаны основные виды виртуализации.</p>
+<figure>
+<img src="vm1.svg" id="fig:vm1" alt="Рис. 23. Виды виртуализации" /><figcaption aria-hidden="true">Рис. 23. Виды виртуализации</figcaption>
+</figure>
+<p>Понятие виртуальной машины связано с самим понятием алгоритма,
+определяющего процесс вычислений, который может быть выполнен на машине
+Тьюринга или на каком-то ином абстрактном вычислителе, полном по
+Тьюрингу. Доказательство полноты по Тьюрингу достигается демонстрацией
+реализации внутри интересующего нас вычислителя виртуальной машины,
+имитирующей работу какого-либо из вычислителей, Тьюринг-полнота которого
+известна.</p>
+<p>На рис. 24 представлены основные техники обеспечения виртуализации.</p>
+<figure>
+<img src="vm2.svg" id="fig:vm2" alt="Рис. 24. Техники виртуализации" /><figcaption aria-hidden="true">Рис. 24. Техники виртуализации</figcaption>
+</figure>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="72-Языковые-виртуальные-машины"><a class="header" href="#72-Языковые-виртуальные-машины">7.2. Языковые виртуальные машины</a></h2>
+<p>Языковые виртуальные машины предназначены для исполнения программ на
+конкретном языке программирования (или семействе таких языков) в
+условиях различных программно-аппаратных платформах без перекомпиляции.
+Иными словами, упрощается портирование программ.</p>
+<p>Рассмотрим классический пример П-кода (P-code) для виртуального
+выполнения программ на языка Паскаль, предложенный в середине 70-х
+годов. Специальный вариант компилятора Паскаля порождает
+платформонезависимый П-код. Для различных программно-аппаратных платформ
+реализованы интерпретаторы П-кода, также включающие библиотеку времени
+выполнения. В результате компилятор существует только в одном варианте и
+для каждой из новых целевых платформ достаточно реализовать небольшую
+программу – интерпретатор П-кода.</p>
+<p>К ярким историческим примерам успешного портирования компьютерных игр на
+множество различных игровых платформ относятся текстовая игра Zork
+(1979), реализованная в коде виртуальной Z-машины, а также игра Another
+World (1991), имеющая изощренную виртуальную машину с поддержкой
+многопоточности, графики и звука.</p>
+<p>К популярным современным языковым виртуальным машинам можно отнести:</p>
+<ul>
+<li>Java Virtual Machine (JVM). Виртуальная машина для Java.</li>
+<li>Common Language Runtime (CLR). Виртуальная машина среды .NET.</li>
+<li>CPython Virtual Machine. Виртуальная машина языка Python.</li>
+<li>WebAssembly (WASM). Виртуальная машина для веб-приложений.</li>
+</ul>
+<p><strong>Языковая виртуальная машина</strong> выполняет команды абстрактного
+процессора, ориентированного на конструкции конкретного языка или целого
+семейства языков. Программу в таком представлении принято называть
+байткодом. Такое название закрепилось исторически, оно связано с
+виртуальной машиной языка Smalltalk, в которой большинство команд
+кодировалось одним байтом.</p>
+<p>Поскольку реальные процессоры, в большинстве случаев, не поддерживают на
+аппаратном уровне исполнение <strong>байткода</strong>, то используется программная
+модель языковой машины.</p>
+<p>Архитектуры виртуальных машин, как и архитектуры реальных процессоров,
+можно разделить на два класса:</p>
+<ul>
+<li>стековые машины,</li>
+<li>регистровые машины.</li>
+</ul>
+<p>Рассмотрим байткод различных виртуальных машин для вычисления выражения</p>
+<p><em>b**b</em> − 4<em>a**c</em>.</p>
+<p>В стековой модели вычислений это выражение представляется в постфиксной
+форме записи:</p>
+<pre><code>b b * 4 a * c * -
+</code></pre>
+<p>В регистровой модели вычислений то же выражение может быть представлено
+трехадресным кодом:</p>
+<pre><code>t1 = b * b
+t2 = 4 * a
+t3 = t2 * c
+t4 = t1 - t3
+</code></pre>
+<p>В JVM используется стековая модель вычислений:</p>
+<pre><code>0: iload_1
+1: iload_1
+2: imul
+3: iconst_4
+4: iload_0
+5: imul
+6: iload_2
+7: imul
+8: isub
+9: ireturn
+</code></pre>
+<p>В CPython тоже используется стековая модель вычислений:</p>
+<pre><code> 0 LOAD_FAST                1 (b)
+ 2 LOAD_FAST                1 (b)
+ 4 BINARY_MULTIPLY
+ 6 LOAD_CONST               1 (4)
+ 8 LOAD_FAST                0 (a)
+10 BINARY_MULTIPLY
+12 LOAD_FAST                2 (c)
+14 BINARY_MULTIPLY
+16 BINARY_SUBTRACT
+18 RETURN_VALUE
+</code></pre>
+<p>Виртуальная машина языка Lua использует регистровую вычислительную
+модель (см. числа после имен операций):</p>
+<pre><code>1   MUL     3 1 1   
+2   MMBIN   1 1 8   ; __mul
+3   MULK    4 0 0   ; 4
+4   MMBINK  0 0 8 1 ; __mul 4 flip
+5   MUL     4 4 2   
+6   MMBIN   4 2 8   ; __mul
+7   SUB     3 3 4   
+8   MMBIN   3 4 7   ; __sub
+9   RETURN1 3   
+10  RETURN0
+</code></pre>
+<p>Во многих случаях для выполнения байткода быстродействия интерпретатора
+оказывается недостаточно. В этой связи может использоваться трансляция.
+Различают следующие варианты трансляции:</p>
+<ul>
+<li>AOT (Ahead-of-Time). Полная трансляция байткода в машинный код
+целевой платформы перед ее запуском.</li>
+<li>JIT (Just-in-Time). Динамическая трансляция областей программы прямо
+во время интерпретации байткода.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="73-Виртуализация-вычислительной-системы"><a class="header" href="#73-Виртуализация-вычислительной-системы">7.3. Виртуализация вычислительной системы</a></h2>
+<p>Устаревание программного и аппаратного обеспечения является серьезной
+проблемой в области информационных технологий. Здесь помощь может
+оказать виртуализация. Устаревшее оборудование, к которому уже не найти
+современных драйверов, может быть заменено своей виртуальной программной
+версией. Программа, предназначенная для выполнения на редкой или
+устаревшей вычислительной системе, может быть выполнена в рамках
+виртуальной машины уже на современном компьютере. Виртуализация также
+полезна для экономного управления вычислительными ресурсами. С
+использованием виртуализации пользователь на одном физическом компьютере
+может работать с несколькими виртуальными компьютерами, имеющим
+различные характеристики и использующими различные ОС. Этот подход
+используется для организации виртуальных серверов для веб-хостинга, а
+также применяется в сфере облачных вычислений.</p>
+<p>Виртуализация уровня вычислительной системы [<a href="7_3_-Virtualizatciia-vychislitelnoi-sistemy.html#ref-model">16</a>] имеет
+давнюю историю. Еще в конце 60-х годов компания IBM реализовала в своей
+ОС CP/CMS поддержку виртуализации на аппаратном уровне. Таким образом
+было организована работа с несколькими программными версиями компьютера
+System/360-370. С массовым развитием персональных компьютеров интерес к
+виртуализации сильно угас. Возобновление этого интереса произошло уже в
+1999 году, когда компания VMware выпустила коммерчески успешное ПО
+VMware Workstation для виртуализации работы ОС Linux и Windows на
+компьютерах с архитектурой x86.</p>
+<p>Для организации виртуальной машины требуется специальный программный
+модуль – монитор виртуальных машин или гипервизор. <strong>Гипервизор</strong>
+управляет доступом виртуальных машин к физическим ресурсам хост-машины.
+В этом отношении гипервизор ведет себя аналогично ядру операционной
+системы. Гипервизоры разделяют на следующие два типа:</p>
+<ol>
+<li>Работает прямо на оборудовании хост-машины, без участия ОС.</li>
+<li>Работает в рамках хост-ОС и, возможно, использует модуль ядра для
+управления физическими ресурсами хост-машины.</li>
+</ol>
+<p>Теоретические основы виртуализуемости, определяющие, насколько
+эффективно работает гипервизор, были предложены в 1974 году Ж. Попеком
+(G. Popek) и Р. Голдбергом (R. Goldberg). Рассмотрим подробнее суть
+предложений этих авторов.</p>
+<p>Выделены следующие типы команд компьютера:</p>
+<ul>
+<li>Привилегированные. Выполнение которых вызывает исключение, если это
+выполнение происходит вне режима ядра ОС.</li>
+<li>Чувствительные. Команды, которые позволяют управлять состоянием
+компьютера или отслеживать это состояние.</li>
+<li>Безвредные. Остальные команды.</li>
+</ul>
+<p>Сформулированы следующие свойства, которыми должен обладать гипервизор:</p>
+<ul>
+<li>Безвредные команды выполняются аппаратурой напрямую, без привлечения
+гипервизора.</li>
+<li>Программы влияют на доступные им ресурсы системы только
+опосредованно, с помощью гипервизора.</li>
+<li>Программа под управлением гипервизора выполняется точно так же, как
+и без оного, за исключением временных характеристик и объема
+доступных ресурсов.</li>
+</ul>
+<p>Наконец, авторы сформулировали следующую <strong>теорему виртуализуемости</strong>:
+построение гипервизора, удовлетворяющего этим свойствам для заданного
+компьютера возможно, если множество чувствительных команд этого
+компьютера является подмножеством привилегированных команд.</p>
+<p>Аппаратная виртуализация, основанная на обработке гипервизором
+исключений со стороны привилегированных команд, использовалась еще в
+старых ОС от компании IBM. Тем не менее, для персональных компьютеров
+архитектуры x86 долгое время представленная выше теорема не выполнялась.
+В начале 2000-х реализация гипервизора на архитектуре x86-64 требовала
+серьезных ухищрений. Использовалась, в частности, динамическая
+трансляция программы с целью замены чувствительных команд на
+соответствующие обращения к гипервизору. Кроме того, применялась техника
+<strong>паравиртуализации</strong>, при использовании которой в гостевую ОС должны
+быть внесены изменения, включающие обращения к гипервизору. Наконец, в
+середине 2000-х компании Intel и AMD добавили в свои процессоры
+аппаратную поддержку виртуализации. Современные процессоры поддерживают
+аппаратную виртуализацию как процессора, так и ОЗУ, а также устройств
+ввода-вывода.</p>
+<p>При использовании виртуальной машины с отличающейся от хост-машины
+процессорной архитектурой необходима <strong>эмуляция</strong>, которая может быть
+реализована в виде интерпретатора машинного кода, а также на основе
+статического (AOT) или динамического (JIT) двоичного транслятора.</p>
+<p>Одной из популярных программ для задач виртуализации вычислительных
+систем является QEMU. В этой программе реализована эмуляция ряда
+компьютеров различных архитектур с набором периферийных устройств. В
+QEMU поддерживается аппаратная виртуализация с использованием сторонних
+гипервизоров, в числе которых KVM (Kernel-based Virtual Machine) и HAXM
+(Hardware Accelerated Execution Manager).</p>
+<p>Рассмотрим пример использования QEMU. Предположим, мы хотим использовать
+дистрибутив Linux Alpine на виртуальной машине с архитектурой x86-64. В
+первую очередь создадим виртуальный жесткий диск размером 1 Гбайт, на
+который будет установлен дистрибутив Linux:</p>
+<pre><code>qemu-img create -f qcow2 alpine.qcow2 1G
+</code></pre>
+<p>Созданный жесткий диск доступен в виде файла alpine.qcow2. Теперь
+необходимо запустить виртуальную систему x86-64 с объемом ОЗУ в 1 Гбайт
+для установки Alpine на виртуальный жесткий диск. При этом используется
+виртуальный CD-ROM и ISO-файл <code>alpine-standard-3.14.2-x86_64.iso</code>:</p>
+<pre><code>qemu-system-x86_64 -m 1G -cdrom alpine-standard-3.14.2-x86_64.iso -hda alpine.qcow2
+</code></pre>
+<p>После установки Alpine на жесткий диск можно перезагрузить виртуальную
+систему и далее работать с ней с помощью следующей команды:</p>
+<pre><code>qemu-system-x86_64 -m 1G -hda alpine.qcow2
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="74-Виртуализация-приложения"><a class="header" href="#74-Виртуализация-приложения">7.4. Виртуализация приложения</a></h2>
+<p>Виртуализация приложения позволяет выполнять приложения на тех
+платформах, для которых они не были предназначены. При этом
+виртуализируются интерфейсы операционной системы. Примером виртуализации
+уровня приложения является система Wine, позволяющая запускать
+приложения для Windows внутри Linux.</p>
+<p>В QEMU имеется эмуляция режима пользователя, которая позволяет выполнять
+Linux-приложения, скомпилированные для одной процессорной архитектуры,
+на другой процессорной архитектуре.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="75-Виртуализация-уровня-ОС"><a class="header" href="#75-Виртуализация-уровня-ОС">7.5. Виртуализация уровня ОС</a></h2>
+<p>При виртуализации уровня ОС виртуализация аппаратных ресурсов обычно
+отсутствует. Существует единственное хост-ядро ОС и набор изолированных
+друг от друга пользовательских пространств, подключаемых к нему. Такие
+подключаемые пользовательские пространства называются <strong>контейнерами</strong>.
+Каждый контейнер содержит отдельную копию файловой системы ОС с
+установленным набором программ. Использование контейнеров облегчает
+установку, использование и взаимодействие сложных программ. В отличие от
+виртуализации, контейнеризация не несет накладных расходов на выполнение
+гостевого ядра ОС.</p>
+<p>Рассмотрим пример использования контейнеров в системе Docker. Установим
+контейнер дистрибутива Alpine:</p>
+<pre><code>docker pull alpine
+</code></pre>
+<p>Запустим (<code>run</code>) контейнер в интерактивном режиме (<code>-it</code>), вызвав
+командный интерпретатор <code>sh</code> в Alpine:</p>
+<pre><code>docker run -it alpine sh
+</code></pre>
+<p>Необходимо учитывать, что после окончания сеанса работы с контейнером
+все несохраненные данные исчезнут. Данные, которые необходимо сохранять,
+например, файлы базы данных, записываются в каталог хост-системы.
+Команда Docker <code>-v</code> указывает этот каталог, а также его представление в
+файловой системе контейнера (<code>/my_data</code>):</p>
+<pre><code>docker run -it -v &quot;$(pwd)/my_data:/my_data&quot; alpine sh
+</code></pre>
+<p>Для построения контейнера удобно использовать конфигурационный файл
+Dockerfile. Предположим, стоит задача построить контейнер на базе Alpine
+с добавленным интерпретатором языка Python. Для выполнения этой задачи
+`Dockerfile имеет следующий вид:</p>
+<pre><code>FROM alpine
+RUN apk add python3
+</code></pre>
+<p>Команда <code>FROM</code> указывает в этом примере базовый контейнер, а команда
+<code>RUN</code> – те команды, которые необходимо выполнить в процессе построения
+контейнера.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>

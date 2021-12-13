@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="ru_RU" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Система контроля версий Git - КОНФИГУРАЦИОННОЕ УПРАВЛЕНИЕ</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> Введение</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="Chto-takoe-konfiguratcionnoe-upravlenie.html"><strong aria-hidden="true">1.1.</strong> Что такое конфигурационное управление</a></li><li class="chapter-item expanded "><a href="Formalnye-opredeleniia.html"><strong aria-hidden="true">1.2.</strong> Формальные определения</a></li><li class="chapter-item expanded "><a href="Tematika-knigi.html"><strong aria-hidden="true">1.3.</strong> Тематика книги</a></li></ol></li><li class="chapter-item expanded "><a href="1_-Rabota-v-komandnoi-stroke.html"><strong aria-hidden="true">2.</strong> Работа в командной строке</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="1_1_-Komandnyi-interpretator.html"><strong aria-hidden="true">2.1.</strong> Командный интерпретатор</a></li><li class="chapter-item expanded "><a href="1_2_-Instrumenty-komandnoi-stroki.html"><strong aria-hidden="true">2.2.</strong> Инструменты командной строки</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> Менеджеры пакетов</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="2_1_-Numeratciia-versii-PO.html"><strong aria-hidden="true">3.1.</strong> Нумерация версий ПО</a></li><li class="chapter-item expanded "><a href="2_2_-Semanticheskaia-numeratciia-versii.html"><strong aria-hidden="true">3.2.</strong> Семантическая нумерация версий</a></li><li class="chapter-item expanded "><a href="2_3_-Upravlenie-paketami.html"><strong aria-hidden="true">3.3.</strong> Управление пакетами</a></li><li class="chapter-item expanded "><a href="2_4_-Menedzher-paketov-apk.html"><strong aria-hidden="true">3.4.</strong> Менеджер пакетов apk</a></li><li class="chapter-item expanded "><a href="2_5_-Menedzher-paketov-apt.html"><strong aria-hidden="true">3.5.</strong> Менеджер пакетов apt</a></li><li class="chapter-item expanded "><a href="2_6_-Zadacha-razresheniia-zavisimostei-paketov.html"><strong aria-hidden="true">3.6.</strong> Задача разрешения зависимостей пакетов</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Конфигурационные языки</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="3_1_-Infrastruktura-kak-kod.html"><strong aria-hidden="true">4.1.</strong> Инфраструктура как код</a></li><li class="chapter-item expanded "><a href="3_2_-Formalnye-iazyki-i-grammatiki.html"><strong aria-hidden="true">4.2.</strong> Формальные языки и грамматики</a></li><li class="chapter-item expanded "><a href="3_3_-Kompiuternye-iazyki.html"><strong aria-hidden="true">4.3.</strong> Компьютерные языки</a></li><li class="chapter-item expanded "><a href="3_4_-Prostye-formaty-opisaniia-konfiguratcii.html"><strong aria-hidden="true">4.4.</strong> Простые форматы описания конфигурации</a></li><li class="chapter-item expanded "><a href="3_5_-Iazyki-obshchego-naznacheniia-kak-konfiguratcionnye.html"><strong aria-hidden="true">4.5.</strong> Языки общего назначения как конфигурационные</a></li><li class="chapter-item expanded "><a href="3_6_-Programmiruemye-konfiguratcionnye-iazyki.html"><strong aria-hidden="true">4.6.</strong> Программируемые конфигурационные языки</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> Системы автоматизации сборки</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="4_1_-Vidy-sistem-sborki.html"><strong aria-hidden="true">5.1.</strong> Виды систем сборки</a></li><li class="chapter-item expanded "><a href="4_2_-Topologicheskaia-sortirovka.html"><strong aria-hidden="true">5.2.</strong> Топологическая сортировка</a></li><li class="chapter-item expanded "><a href="4_3_-Sistema-sborki-Make.html"><strong aria-hidden="true">5.3.</strong> Система сборки Make</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> Системы контроля версий</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="5_1_-O-sistemakh-kontrolia-versii.html"><strong aria-hidden="true">6.1.</strong> О системах контроля версий</a></li><li class="chapter-item expanded "><a href="5_2_-Sistema-kontrolia-versii-Git.html" class="active"><strong aria-hidden="true">6.2.</strong> Система контроля версий Git</a></li><li class="chapter-item expanded "><a href="5_3_-Git-iznutri.html"><strong aria-hidden="true">6.3.</strong> Git изнутри</a></li></ol></li><li class="chapter-item expanded "><a href="6_-Dokumentatciia-kak-kod.html"><strong aria-hidden="true">7.</strong> Документация как код</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="6_1_-Iazyki-razmetki.html"><strong aria-hidden="true">7.1.</strong> Языки разметки</a></li><li class="chapter-item expanded "><a href="6_2_-Gramotnoe-programmirovanie.html"><strong aria-hidden="true">7.2.</strong> Грамотное программирование</a></li><li class="chapter-item expanded "><a href="6_3_-Markdown-i-Pandoc.html"><strong aria-hidden="true">7.3.</strong> Markdown и Pandoc</a></li><li class="chapter-item expanded "><a href="6_4_-Iazyki-opisaniia-diagramm.html"><strong aria-hidden="true">7.4.</strong> Языки описания диаграмм</a></li><li class="chapter-item expanded "><a href="6_5_-Generatory-dokumentatcii-na-osnove-iskhodnykh-tekstov.html"><strong aria-hidden="true">7.5.</strong> Генераторы документации на основе исходных текстов</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> Вопросы виртуализации</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="7_1_-Chto-takoe-virtualizatciia.html"><strong aria-hidden="true">8.1.</strong> Что такое виртуализация</a></li><li class="chapter-item expanded "><a href="7_2_-Iazykovye-virtualnye-mashiny.html"><strong aria-hidden="true">8.2.</strong> Языковые виртуальные машины</a></li><li class="chapter-item expanded "><a href="7_3_-Virtualizatciia-vychislitelnoi-sistemy.html"><strong aria-hidden="true">8.3.</strong> Виртуализация вычислительной системы</a></li><li class="chapter-item expanded "><a href="7_4_-Virtualizatciia-prilozheniia.html"><strong aria-hidden="true">8.4.</strong> Виртуализация приложения</a></li><li class="chapter-item expanded "><a href="7_5_-Virtualizatciia-urovnia-OS.html"><strong aria-hidden="true">8.5.</strong> Виртуализация уровня ОС</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">КОНФИГУРАЦИОННОЕ УПРАВЛЕНИЕ</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="52-Система-контроля-версий-git"><a class="header" href="#52-Система-контроля-версий-git">5.2. Система контроля версий Git</a></h2>
+<p>Git [<a href="#ref-git">14</a>] является децентрализованной СКВ. Разработана эта
+система была Л. Торвальдсом в 2005 году для нужд управления версиями
+ядра ОС Linux. Сегодня Git является самой популярной СКВ. Работу с Git
+не назовешь простой и многие пользователи критикуют эту систему за
+неудобный интерфейс командной строки. Тем не менее, основные
+архитектурные решения в Git являются изящными и логичными, но для того,
+чтобы их оценить, необходимо узнать, как работает Git изнутри.</p>
+<h3 id="521-Простейшие-команды-git"><a class="header" href="#521-Простейшие-команды-git">5.2.1. Простейшие команды Git</a></h3>
+<p>Рассмотрим сначала самые распространенные команды Git.</p>
+<p>Создание Git-репозитория в текущем каталоге:</p>
+<pre><code>~# mkdir my_repo
+~# cd my_repo
+~/my_repo# git init .
+Initialized empty Git repository in /root/my_repo/.git/
+</code></pre>
+<p>Состояние git-репозитория:</p>
+<pre><code>~/my_repo# git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use &quot;git add&quot; to track)
+</code></pre>
+<p>В данном случае Git сообщает очевидное – в проекте еще не было коммитов.</p>
+<p>Создадим теперь первый файл в репозитории:</p>
+<pre><code>~/my_repo# echo &quot;# Some text&quot; &gt; readme.md
+root@DESKTOP-OI5FV17:~/my_repo# git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+        readme.md
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</code></pre>
+<p>Теперь информация о статусе репозитория изменилась – появился
+неотслеживаемый файл readme.md.</p>
+<p>В Git файлы могут находиться в следующих состояниях:</p>
+<ul>
+<li>неотслеживаемые файлы (untracked) – файлы, которые Git не учитывает
+в своей работе,</li>
+<li>измененные файлы (modified) – отслеживаемые файлы, содержимое
+которых было изменено, но не добавлено в область индексирования;</li>
+<li>индексированные файлы (staged) – измененные файлы, добавленные в
+область индексирования;</li>
+<li>зафиксированные файлы (commited) – файлы, добавленные в коммит.</li>
+</ul>
+<p>Таким образом, при создании нового коммита сначала нужно добавить
+выбранные файлы в специальную промежуточную зону – область
+индексирования.</p>
+<p>Проиндексировать файлы можно с помощью команды Git add:</p>
+<pre><code>~/my_repo# git add readme.md
+~/my_repo# git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+        new file:   readme.md
+</code></pre>
+<p>После добавления всех необходимых файлов в зону индекса (это можно
+сделать одной командой: <code>git add .</code>) создается коммит, но если в Git еще
+не заданы данные пользователя, то необходимо сначала их указать:</p>
+<pre><code>~/my_repo# git config --local user.name &quot;Peter&quot;
+~/my_repo# git config --local user.email &quot;peter@example.com&quot;
+~/my_repo# git commit -m &quot;first commit&quot;
+[master (root-commit) 3ba9fa7] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.md
+</code></pre>
+<p>Теперь первая версия проекта зафиксирована. Информацию о коммитах выдает
+следующая команда:</p>
+<pre><code>~/my_repo# git log
+commit 3ba9fa7980a4ba36086e66389b1ef95cbbf317e2 (HEAD -&gt; master)
+Author: Peter &lt;peter@example.com&gt;
+Date:   Tue Nov 16 17:08:47 2021 +0300
+
+    first commit
+</code></pre>
+<p>Обратите внимание на длинную последовательность <code>3ba9fa...</code>. Это
+хеш-значение коммита, определяющее текущую версию репозитория. Текущая
+ветка проекта является главной и традиционно называется <code>master</code> или
+<code>main</code>.</p>
+<p>Работу с версиями в Git можно изобразить в виде графа коммитов, см.
+рис. 11.</p>
+<figure>
+<img src="git1.svg" id="fig:git1" alt="Рис. 11. Состояние репозитория после нескольких коммитов" /><figcaption aria-hidden="true">Рис. 11. Состояние репозитория после нескольких коммитов</figcaption>
+</figure>
+<h3 id="522-Ветвление-в-git"><a class="header" href="#522-Ветвление-в-git">5.2.2. Ветвление в Git</a></h3>
+<p>Традиционно ветвление в СКВ позволяет разделять проект на независимые
+сущности (ветки), где изменения в конкретной ветке не затрагивают
+остальные ветки. Это полезно в условиях коллективной разработки, когда
+программисты одновременно работают над разными частями программы.
+Представим ситуацию, когда есть задача по разработке новой
+функциональности, но необходимо параллельно вносить и исправления в
+проект, не затрагивая новые функции. В таких ситуациях используется
+ветвление: под новые задачи создается отдельная ветка, и разработка
+ведется в ней.</p>
+<p>Рассмотрим на примерах ветвление в Git.</p>
+<p>Новая ветка создается с помощью команды <code>git branch имя</code>. Переключиться
+на ветку можно с помощью <code>git checkout имя</code>. Так как создание ветки и
+переключение на нее – зачастую следующие друг за другом операции, их
+можно выполнить одной командой <code>git checkout -b имя</code>.</p>
+<p>Предположим, работа над репозиторием my_repo развивалась следующим
+образом:</p>
+<pre><code>git branch tests
+git add ...
+git commit -m &quot;...&quot;
+git checkout tests
+git add ...
+git commit -m &quot;...&quot;
+git add ...
+git commit -m &quot;...&quot;
+</code></pre>
+<p>На рис. 12 показано новое состояние графа коммитов репозитория.</p>
+<figure>
+<img src="git2.svg" id="fig:git2" alt="Рис. 12. Работа с дополнительной веткой" /><figcaption aria-hidden="true">Рис. 12. Работа с дополнительной веткой</figcaption>
+</figure>
+<p>В какой-то момент ветки сливаются (merge):</p>
+<pre><code>git checkout master
+git merge tests
+</code></pre>
+<p>На рис. 13 показан результат этого слияния. Был создан новый коммит,
+объединяющий в себе изменения из обеих веток.</p>
+<p>Так как ветки master и tests указывают на один и тот же коммит, то ветку
+test, если она больше не нужна, можно удалить командой
+<code>git branch -d tests</code>.</p>
+<figure>
+<img src="git3.svg" id="fig:git3" alt="Рис. 13. Слияние веток" /><figcaption aria-hidden="true">Рис. 13. Слияние веток</figcaption>
+</figure>
+<p>Еще одним способом объединения веток является перебазирование,
+осуществляемой командой <code>git rebase</code>:</p>
+<pre><code>git checkout master
+git rebase tests
+</code></pre>
+<p>На рис. 14 показан результат перебазирования ветки tests на master.
+Здесь изменения, созданные в tests, были применены поверх master. В
+результате получена линейная история коммитов, которую, зачастую,
+изучать проще, чем результат, полученный с помощью merge.</p>
+<figure>
+<img src="git4.svg" id="fig:git4" alt="Рис. 14. Перебазирование веток" /><figcaption aria-hidden="true">Рис. 14. Перебазирование веток</figcaption>
+</figure>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="5_1_-O-sistemakh-kontrolia-versii.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="5_3_-Git-iznutri.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="5_1_-O-sistemakh-kontrolia-versii.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="5_3_-Git-iznutri.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
