@@ -1,6 +1,6 @@
 [book]
 authors = ["П.Н. Советов"]
-language = "ru_RU"
+language = "ru"
 multilingual = false
 src = "src"
 title = "КОНФИГУРАЦИОННОЕ УПРАВЛЕНИЕ"
