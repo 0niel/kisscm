@@ -7,7 +7,7 @@ BULLETS = [
 ]
 
 docx_file = sys.argv[1]
-temp_file = docx_file + '.temp'
+temp_file = f'{docx_file}.temp'
 
 with ZipFile(docx_file, 'r') as zipread:
     with ZipFile(temp_file, 'w') as zipwrite:

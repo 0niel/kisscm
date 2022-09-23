@@ -15,7 +15,7 @@ def generate_summary(titles):
         clear_title = title['title'].replace('#', '').strip()
         meta_string = f"- [{clear_title}]({title['file_name'] if title['file_name'] is not None else ''})\n"
         if title['title'].find('##') != -1:
-            summary_text += "    " + meta_string
+            summary_text += f"    {meta_string}"
         else:
             summary_text += meta_string
 
